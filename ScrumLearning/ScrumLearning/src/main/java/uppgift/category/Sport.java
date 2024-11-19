@@ -12,8 +12,14 @@ import java.util.Scanner;
 
 public class Sport extends CategoryCommand {
 
-    public Sport(String name) {
+    public Sport() {
         super("Sport");
+    }
+
+    @Override
+    public void executeCategory() {
+        System.out.println("Loading category...");
+        TriviaAPI();
     }
 
     public static class TriviaQuestion {

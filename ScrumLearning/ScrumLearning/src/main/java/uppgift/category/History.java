@@ -10,17 +10,18 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Scanner;
 
-public class Animals extends CategoryCommand implements ICategoryCommand {
-    public Animals() {
-        super("Animals");
+public class History extends CategoryCommand{
+    public History() {
+        super("History");
     }
-
 
     @Override
     public void executeCategory() {
         System.out.println("Loading category...");
         TriviaAPI();
     }
+
+
     public static class TriviaQuestion {
         public String category;
         public String type;
@@ -48,7 +49,7 @@ public class Animals extends CategoryCommand implements ICategoryCommand {
 
     public static void TriviaAPI(){
         //public static void execute() {
-        String apiUrl = "https://opentdb.com/api.php?amount=12&category=27";
+        String apiUrl = "https://opentdb.com/api.php?amount=12&category=23";
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -93,3 +94,4 @@ public class Animals extends CategoryCommand implements ICategoryCommand {
         }
     }
 }
+

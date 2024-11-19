@@ -46,8 +46,8 @@ public class Menu{
 
         @Override
         public void execute() {
-            System.out.println("getting quiz..");
-            Sport.TriviaAPI();
+            System.out.println("Select a category to play:");
+            CategoryCommand.showCategoryMenu();
 
         }
     }
