@@ -1,5 +1,9 @@
 package menu;
 
+import Options.CreateQuizOption;
+import Options.PlayGameOption;
+import Options.ViewStatisticsOption;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -7,9 +11,9 @@ public class Menu {
 
     public Menu() {
         options = new MenuOption[] {
-                new PlayGameOption(),
-                new CreateQuizOption(),
-                new ViewStatisticsOption()
+                  new PlayGameOption(),
+                  new CreateQuizOption(),
+                  new ViewStatisticsOption()
         };
     }
 
@@ -18,7 +22,6 @@ public class Menu {
         boolean running = true;
 
         while (running) {
-            System.out.println("Welcome to the quiz!");
             System.out.println("Chose an option below: ");
             System.out.println("1. Play the quiz");
             System.out.println("2. Make your own quiz");
