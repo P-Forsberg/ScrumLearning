@@ -42,7 +42,7 @@ public class Music extends CategoryCommand{
 
     public static class TriviaResponse {
         public int response_code;
-        public List<Sport.TriviaQuestion> results;
+        public List<TriviaQuestion> results;
     }
 
 
@@ -60,12 +60,12 @@ public class Music extends CategoryCommand{
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             ObjectMapper objectMapper = new ObjectMapper();
-            Sport.TriviaResponse triviaResponse = objectMapper.readValue(response.body(), Sport.TriviaResponse.class);
+            TriviaResponse triviaResponse = objectMapper.readValue(response.body(), TriviaResponse.class);
 
             Scanner scanner = new Scanner(System.in);
             int score = 0;
 
-            for (Sport.TriviaQuestion question : triviaResponse.results) {
+            for (TriviaQuestion question : triviaResponse.results) {
                 System.out.println(question.question);
 
                 List<String> options = question.incorrect_answers;

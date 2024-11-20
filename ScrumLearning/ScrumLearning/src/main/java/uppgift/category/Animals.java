@@ -1,95 +1,44 @@
 package uppgift.category;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import uppgift.question.Question;
+import uppgift.question.QuestionRepo;
 import java.util.List;
 import java.util.Scanner;
 
-public class Animals extends CategoryCommand implements ICategoryCommand {
+public class Animals extends CategoryCommand {
+
+    private QuestionRepo questionRepo;
+    public String apiUrl;
+
     public Animals() {
         super("Animals");
+        this.questionRepo = new QuestionRepo();
+        this.apiUrl = "https://opentdb.com/api.php?amount=12&category=27";
     }
 
 
-    @Override
-    public void executeCategory() {
-        System.out.println("Loading category...");
-        TriviaAPI();
-    }
-    public static class TriviaQuestion {
-        public String category;
-        public String type;
-        public String difficulty;
-        public String question;
-        public String correct_answer;
-        public List<String> incorrect_answers;
-
-        @Override
-        public String toString() {
-            return "Category: " + category +
-                    "\nType: " + type +
-                    "\nDifficulty: " + difficulty +
-                    "\nQuestions: " + question +
-                    "\nCorrect Answer: " + correct_answer +
-                    "\nIncorrect answers: " + incorrect_answers;
-        }
-    }
-
-    public static class TriviaResponse {
-        public int response_code;
-        public List<Sport.TriviaQuestion> results;
-    }
-
-
-    public static void TriviaAPI(){
-        //public static void execute() {
-        String apiUrl = "https://opentdb.com/api.php?amount=12&category=27";
-
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(apiUrl))
-                .GET()
-                .build();
-
-        try {
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-            ObjectMapper objectMapper = new ObjectMapper();
-            Sport.TriviaResponse triviaResponse = objectMapper.readValue(response.body(), Sport.TriviaResponse.class);
-
+        private void handleQuiz(List< Question > animalQuestions) {
             Scanner scanner = new Scanner(System.in);
-            int score = 0;
-
-            for (Sport.TriviaQuestion question : triviaResponse.results) {
-                System.out.println(question.question);
-
-                List<String> options = question.incorrect_answers;
-                options.add(question.correct_answer);
-                options.sort((a, b) -> Math.random() < 0.5 ? -1 : 1); // blande alternativen
-
-                for(int i = 0; i < options.size(); i++){
-                    System.out.println((i + 1) + ". " + options.get(i)); // visa alternativen
+            for (Question question : animalQuestions) {
+                System.out.println("Question: " + question.getQuestion());
+                for (int i = 0; i < question.getAllAnswers().size(); i++){
+                    System.out.println((i + 1) + ". " + question.getAllAnswers().indexOf(i));
                 }
-
-                System.out.println("your Answer (1-" + options.size() + "): ");
-                int answer = scanner.nextInt();
-
-                if(options.get(answer - 1).equals(question.correct_answer)){
-                    System.out.println("Correct!");
-                    score ++;
-                } else {
-                    System.out.println("Incorrect. the correct answer was: " + question.correct_answer);
+                System.out.println(question.getCorrectAnswer());
+                int answer = scanner.nextInt() -1;
+                System.out.println(question.getAllAnswers().get(answer));
+                System.out.println("--------------------------");
+                if(question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())){
+                    System.out.println("Correct");
+                } else{
+                    System.out.println("Wrong");
                 }
-                System.out.println();
             }
-            System.out.println("You answered " + score + " out of " + triviaResponse.results.size() + " questions correctly!");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
         }
+        @Override
+        public void executeCategory() {
+            System.out.println("Loading category...");
+            List<Question> animalQuestions = questionRepo.TriviaAPI(apiUrl);
+            handleQuiz(animalQuestions);
+        }
+
     }
-}
