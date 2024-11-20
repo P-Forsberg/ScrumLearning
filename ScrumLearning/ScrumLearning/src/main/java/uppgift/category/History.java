@@ -31,17 +31,15 @@ public class History extends CategoryCommand{
                 System.out.println("correct");
             } else {
                 System.out.println("wrong");
-
             }
-
         }
     }
+
     @Override
     public void executeCategory() {
         System.out.println("Loading category...");
         List<Question> historyQuestions = questionRepo.TriviaAPI(apiUrl);
         handleQuiz(historyQuestions);
     }
-
 }
 
