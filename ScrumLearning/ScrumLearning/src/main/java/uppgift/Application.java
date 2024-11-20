@@ -1,9 +1,23 @@
 package main.java.uppgift;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import menu.Menu;
+import options.PlayerQuizMaker;
+import java.io.IOException;
+
+
 public class Application {
     public static void main(String[] args) {
-        System.out.println("hej");
+        Menu menu = new Menu();
+        menu.displayMenu();
+
+        PlayerQuizMaker quizMaker = new PlayerQuizMaker();
+
+        try {
+            quizMaker.loadQuiz();
+        } catch (IOException e) {
+            System.out.println("No previous quiz found, starting fresh.");
+        }
+
+        quizMaker.createQuiz();
     }
 }

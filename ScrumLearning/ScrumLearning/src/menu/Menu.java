@@ -1,8 +1,8 @@
 package menu;
 
-import Options.CreateQuizOption;
-import Options.PlayGameOption;
-import Options.ViewStatisticsOption;
+import options.CreateQuizOption;
+import options.PlayGameOption;
+import options.ViewStatisticsOption;
 
 import java.util.Scanner;
 
