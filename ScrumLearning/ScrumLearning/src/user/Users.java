@@ -1,14 +1,14 @@
-package User;
+package user;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class User {
+public class Users {
     private String username;
 
     private static Set<String> registeredUsernames = new HashSet<>();
 
-    public User(String username) {
+    public Users(String username) {
         this.username = username;
         registeredUsernames.add(username);
     }
@@ -20,4 +20,9 @@ public class User {
     public String getUsername() {
         return username;
     }
+
+    public static boolean usernameExists(String username) {
+        return registeredUsernames.contains(username);
+    }
 }
+
