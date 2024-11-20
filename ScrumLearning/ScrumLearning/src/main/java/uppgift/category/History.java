@@ -1,4 +1,5 @@
 package uppgift.category;
+
 import uppgift.question.Question;
 import uppgift.question.QuestionRepo;
 import java.util.List;
@@ -27,19 +28,18 @@ public class History extends CategoryCommand{
             int answer = scanner.nextInt() -1;
             System.out.println(question.getAllAnswers().get(answer));
             System.out.println("--------------------------");
-            if (question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())){
-                System.out.println("correct");
-            } else {
-                System.out.println("wrong");
+            if(question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())){
+                System.out.println("Correct");
+            } else{
+                System.out.println("Wrong");
             }
         }
     }
-
     @Override
     public void executeCategory() {
         System.out.println("Loading category...");
         List<Question> historyQuestions = questionRepo.TriviaAPI(apiUrl);
         handleQuiz(historyQuestions);
     }
-}
 
+}

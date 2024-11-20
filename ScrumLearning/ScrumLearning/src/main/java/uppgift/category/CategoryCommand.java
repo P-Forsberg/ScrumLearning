@@ -11,21 +11,28 @@ public abstract class CategoryCommand implements ICategoryCommand {
         this.name = name;
     }
 
+    public String getName(){
+        return name;
+    }
+
     public abstract void executeCategory();
+
     public static void showCategoryMenu() {
         ICategoryCommand[] categories = {
                 new Sport(),
                 new Music(),
                 new Animals(),
                 new History(),
-                new Geography()// Lägg till fler kategorier här
+                new Geography(),
+                //new Mix() hämtade spara till fil quiz
+                // Lägg till fler kategorier här
         };
 
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please select a category:");
         for (int i = 0; i < categories.length; i++) {
-            System.out.println((i + 1) + ". " + categories[i]);
+            System.out.println((i + 1) + ". " + ((CategoryCommand) categories[i]).getName());
         }
 
         int choice = scanner.nextInt();
@@ -35,12 +42,6 @@ public abstract class CategoryCommand implements ICategoryCommand {
         } else {
             System.out.println("Invalid choice, returning to menu.");
         }
-    }
-
-
-
-    public String getName() {
-        return name;
     }
 
 }

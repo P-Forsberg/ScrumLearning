@@ -1,6 +1,5 @@
 package uppgift.question;
 
-
 import java.util.List;
 
 public class Question {
