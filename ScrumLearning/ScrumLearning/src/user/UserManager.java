@@ -16,10 +16,10 @@ public class UserManager {
 
             switch (choice) {
                 case "1":
-                    loginUser(); // För existerande användarnamn
+                    loginUser();
                     break;
                 case "2":
-                    registerNewUser(); // För att skapa ett nytt användarnamn
+                    registerNewUser();
                     break;
                 case "0":
                     System.out.println("Exiting the system. Goodbye!");
