@@ -21,11 +21,18 @@ public class History extends CategoryCommand{
         for (Question question : historyQuestions) {
             System.out.println("Question: " + question.getQuestion());
             for (int i = 0; i < question.getAllAnswers().size(); i++){
-                System.out.println((i + 1) + ". " + question.getAllAnswers().indexOf(i));
+                System.out.println((i + 1) + ". " + question.getAllAnswers().get(i));
             }
-            System.out.println("your Answer (1-" + question.getAllAnswers().size() + "): ");
-            int answer = scanner.nextInt();
+            System.out.println(question.getCorrectAnswer());
+            int answer = scanner.nextInt() -1;
+            System.out.println(question.getAllAnswers().get(answer));
             System.out.println("--------------------------");
+            if (question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())){
+                System.out.println("correct");
+            } else {
+                System.out.println("wrong");
+
+            }
 
         }
     }

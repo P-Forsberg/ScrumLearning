@@ -37,7 +37,6 @@ public class QuestionRepo {
                     List <String> options = new ArrayList<>(incorrectAnswers);
                     options.add(correctAnswer);
 
-
                     Question question = new Question(questionText, options, correctAnswer);
                     questions.add(question);
                 }
