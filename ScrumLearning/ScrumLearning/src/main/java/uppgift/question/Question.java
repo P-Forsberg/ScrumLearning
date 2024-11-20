@@ -11,7 +11,7 @@ public class Question {
     private String category;
 
 
-    public Question(String question, String correctAnswer, List<String> allAnswers, String difficulty, String category) {
+    public Question(String question, List<String> allAnswers, String difficulty) {
         this.question = question;
         this.allAnswers = allAnswers;
         this.correctAnswer = correctAnswer;

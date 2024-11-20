@@ -1,17 +1,21 @@
-package menu;
+package uppgift.menu;
+
+import uppgift.category.CategoryCommand;
+import uppgift.category.Sport;
 
 import java.util.Scanner;
 
-public class Menu {
-   // private MenuOption[] options;
+public class Menu{
+    private IMenuOptions direction;
+    private final IMenuOptions[] options;
 
-    //public Menu() {
-      //  options = new MenuOption[] {
-        //        new PlayGameOption(),
-          //      new CreateQuizOption(),
-            //    new ViewStatisticsOption()
-        //};
-   // }
+   public Menu() {
+        options = new IMenuOptions[] {
+                new PlayGameOption(),
+                new CreateQuizOption(),
+                new ViewStatisticsOption()
+        };
+    }
 
     public void displayMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -27,14 +31,39 @@ public class Menu {
 
             int choice = scanner.nextInt();
 
-            // if (choice > 0 && choice <= options.length) {
-              //  options[choice - 1].execute();
-            //} else if (choice == 4) {
-              //  System.out.println("Ending the quiz, see you next time!");
-                //running = false;
-            //} else {
-              //  System.out.println("Invalid choice, try again.");
-            //}
+            if (choice > 0 && choice <= options.length) {
+                options[choice - 1].execute();
+            } else if (choice == 4) {
+                System.out.println("Ending the quiz, see you next time!");
+                running = false;
+            } else {
+                System.out.println("Invalid choice, try again.");
+            }
+        }
+
+    }
+    public class PlayGameOption implements IMenuOptions {
+
+        @Override
+        public void execute() {
+            System.out.println("Select a category to play:");
+            CategoryCommand.showCategoryMenu();
+
         }
     }
+    public class CreateQuizOption implements IMenuOptions {
+
+        @Override
+        public void execute() {
+            System.out.println("Getting create quiz...");
+        }
+    }
+    public class ViewStatisticsOption implements IMenuOptions {
+
+        @Override
+        public void execute() {
+            System.out.println("Getting Statistics...");
+        }
+    }
+
 }

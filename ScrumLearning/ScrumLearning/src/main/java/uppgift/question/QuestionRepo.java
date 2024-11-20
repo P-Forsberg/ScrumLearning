@@ -1,61 +1,50 @@
 package uppgift.question;
 
+import uppgift.category.Sport;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class QuestionRepo {
-    private final String API_url = "https://opentdb.com/api.php?amount=50&type=multiple";
+        public List<Question> TriviaAPI(String api) {
+            List<Question> questions = new ArrayList<>();
 
-    public List<Question> fetchQuestions() throws IOException, InterruptedException {
-        List<Question> questions = new ArrayList<>();
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(api))
+                    .GET()
+                    .build();
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest req = HttpRequest.newBuilder()
-                .uri(URI.create(API_url))
-                .build();
+            try {
+                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        HttpResponse<String> response = client.send(req, HttpResponse.BodyHandlers.ofString());
+                ObjectMapper objectMapper = new ObjectMapper();
+                Map<String, Object> responseMap= objectMapper.readValue(response.body(), Map.class);
 
-        if (response.statusCode() == 200) {
-            String responseB = response.body();
+                List<Map<String, Object>> res = (List<Map<String, Object>>) responseMap.get("results");
 
-            JSONObject jsonResponse = new JSONObject(responseB);
-            JSONArray res = jsonResponse.getJSONArray("results");
+                for (Map<String, Object> triviaQuestion : res) {
+                    String questionText = (String) triviaQuestion.get("question");
+                    String correctAnswer = (String) triviaQuestion.get("correct_answer");
+                    List<String> incorrectAnswers = (List <String>) triviaQuestion.get("incorrect_answers");
 
-            for (int i = 0; i < res.length(); i++) {
-                JSONObject jsonQuestion = res.getJSONObject(i);
-                // get data from the json
-                String questionText = jsonQuestion.getString("question");
-                String correctAnswer = jsonQuestion.getString("correct_answer");
-                String questionCategory = jsonQuestion.getString("category");
-                String questionDifficulty = jsonQuestion.getString("difficulty");
-                JSONArray incorrectAnswers  = jsonQuestion.getJSONArray("incorrect_answers");
+                    List <String> options = new ArrayList<>(incorrectAnswers);
+                    options.add(correctAnswer);
 
-                List<String> allAnswers = new ArrayList<>();
-                allAnswers.add(correctAnswer);
-                for (int j = 0; j < incorrectAnswers.length(); j++){
-                    allAnswers.add(incorrectAnswers.getString(j));
+
+                    Question question = new Question(questionText, options, correctAnswer);
+                    questions.add(question);
                 }
-                Question question = new Question(questionText, correctAnswer, allAnswers, questionDifficulty, questionCategory);
-                questions.add(question);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
+
+            return questions;
         }
-        return questions;
     }
-
-    public List<Question> getFilteredQuestion(List<Question> questions, String category, String difficulty) {
-        return questions.stream()
-                .filter(q -> q.getCategory().equals(category))
-                .filter(q -> q.getDifficulty().equals(difficulty))
-                .toList();
-
-    }
-}

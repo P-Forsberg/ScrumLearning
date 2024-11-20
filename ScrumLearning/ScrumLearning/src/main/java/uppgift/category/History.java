@@ -1,0 +1,40 @@
+package uppgift.category;
+import uppgift.question.Question;
+import uppgift.question.QuestionRepo;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+
+public class History extends CategoryCommand{
+
+    private QuestionRepo questionRepo;
+    public String apiUrl;
+
+    public History() {
+        super("History");
+        this.questionRepo = new QuestionRepo();
+        this.apiUrl = "https://opentdb.com/api.php?amount=12&category=23";
+    }
+
+    private void handleQuiz(List<Question> historyQuestions) {
+        Scanner scanner = new Scanner(System.in);
+        for (Question question : historyQuestions) {
+            System.out.println("Question: " + question.getQuestion());
+            for (int i = 0; i < question.getAllAnswers().size(); i++){
+                System.out.println((i + 1) + ". " + question.getAllAnswers().indexOf(i));
+            }
+            System.out.println("your Answer (1-" + question.getAllAnswers().size() + "): ");
+            int answer = scanner.nextInt();
+            System.out.println("--------------------------");
+
+        }
+    }
+    @Override
+    public void executeCategory() {
+        System.out.println("Loading category...");
+        List<Question> historyQuestions = questionRepo.TriviaAPI(apiUrl);
+        handleQuiz(historyQuestions);
+    }
+
+}
+
