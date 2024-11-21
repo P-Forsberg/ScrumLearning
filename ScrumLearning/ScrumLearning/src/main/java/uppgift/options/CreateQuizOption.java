@@ -1,12 +1,17 @@
-package uppgift.options;
+package main.java.uppgift.options;
 
-import uppgift.menu.MenuOption;
+
+import main.java.uppgift.menu.MenuOption;
 
 public class CreateQuizOption implements MenuOption {
+    private PlayerQuizMaker quizMaker;
+
+    public CreateQuizOption() {
+        quizMaker = new PlayerQuizMaker();
+    }
+
     @Override
     public void execute() {
-        System.out.println("Create your own quiz!");
-        PlayerQuizMaker quizMaker = new PlayerQuizMaker();
         quizMaker.createQuiz();
     }
 }
