@@ -10,7 +10,7 @@ public class Question {
     private String category;
 
 
-    public Question(String question, List<String> allAnswers, String correctAnswer) {
+    public Question(String question, List<String> allAnswers, String correctAnswer, String difficulty, String category) {
         this.question = question;
         this.allAnswers = allAnswers;
         this.correctAnswer = correctAnswer;

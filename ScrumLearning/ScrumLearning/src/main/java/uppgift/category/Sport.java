@@ -13,13 +13,16 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Sport extends CategoryCommand {
+
+    private SetQuiz setDifficulty;
     private QuestionRepo questionRepo;
     private String apiUrl;
 
     public Sport() {
         super("Sport");
         this.questionRepo = new QuestionRepo();
-        this.apiUrl = "https://opentdb.com/api.php?amount=12&category=21";
+        this.setDifficulty = new SetQuiz();
+        this.apiUrl = "https://opentdb.com/api.php?amount=12&category=21&difficulty=";
     }
 
     private void handleQuiz(List<Question> sportQuestions) {
@@ -30,7 +33,7 @@ public class Sport extends CategoryCommand {
                 System.out.println((i + 1) + ". " + question.getAllAnswers().get(i));
             }
 
-            System.out.println(question.getCorrectAnswer());
+            System.out.println(question.getDifficulty());
             int answer = scanner.nextInt() -1;
             System.out.println(question.getAllAnswers().get(answer));
             System.out.println("--------------------------");
@@ -45,7 +48,8 @@ public class Sport extends CategoryCommand {
     @Override
     public void executeCategory() {
         System.out.println("Loading category...");
-        List <Question> sportQuestions  = questionRepo.TriviaAPI(apiUrl);
+        String diff = setDifficulty.selectDifficulty();
+        List <Question> sportQuestions  = questionRepo.TriviaAPI(apiUrl + diff);
         handleQuiz(sportQuestions);
     }
 }

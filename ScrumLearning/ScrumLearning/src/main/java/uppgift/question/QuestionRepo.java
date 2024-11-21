@@ -30,12 +30,14 @@ public class QuestionRepo {
                 for (Map<String, Object> triviaQuestion : res) {
                     String questionText = (String) triviaQuestion.get("question");
                     String correctAnswer = (String) triviaQuestion.get("correct_answer");
+                    String diff = (String) triviaQuestion.get("difficulty");
+                    String cat = (String) triviaQuestion.get("category");
                     List<String> incorrectAnswers = (List <String>) triviaQuestion.get("incorrect_answers");
 
                     List <String> options = new ArrayList<>(incorrectAnswers);
                     options.add(correctAnswer);
 
-                    Question question = new Question(questionText, options, correctAnswer);
+                    Question question = new Question(questionText, options, correctAnswer, diff, cat);
                     questions.add(question);
                 }
             } catch (IOException | InterruptedException e) {
