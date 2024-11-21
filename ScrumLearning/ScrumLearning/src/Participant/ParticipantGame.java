@@ -1,4 +1,4 @@
-package Participant;
+/*package Participant;
 
 import java.util.Scanner;
 
@@ -66,3 +66,4 @@ public class ParticipantGame {
         return participantManager.getNumberOfParticipants();
     }
 }
+*/

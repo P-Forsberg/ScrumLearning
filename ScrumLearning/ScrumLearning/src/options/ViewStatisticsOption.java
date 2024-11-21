@@ -1,4 +1,4 @@
-package Options;
+package options;
 
 import menu.MenuOption;
 
