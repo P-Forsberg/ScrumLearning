@@ -10,39 +10,40 @@ import java.util.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class QuestionRepo {
-    public List<Question> TriviaAPI(String api) {
-        List<Question> questions = new ArrayList<>();
+        public List<Question> TriviaAPI(String api) {
+            List<Question> questions = new ArrayList<>();
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(api))
-                .GET()
-                .build();
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(api))
+                    .GET()
+                    .build();
 
-        try {
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            try {
+                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            ObjectMapper objectMapper = new ObjectMapper();
-            Map<String, Object> responseMap= objectMapper.readValue(response.body(), Map.class);
+                ObjectMapper objectMapper = new ObjectMapper();
+                Map<String, Object> responseMap= objectMapper.readValue(response.body(), Map.class);
 
-            List<Map<String, Object>> res = (List<Map<String, Object>>) responseMap.get("results");
+                List<Map<String, Object>> res = (List<Map<String, Object>>) responseMap.get("results");
 
-            for (Map<String, Object> triviaQuestion : res) {
-                String questionText = (String) triviaQuestion.get("question");
-                String correctAnswer = (String) triviaQuestion.get("correct_answer");
-                List<String> incorrectAnswers = (List <String>) triviaQuestion.get("incorrect_answers");
+                for (Map<String, Object> triviaQuestion : res) {
+                    String questionText = (String) triviaQuestion.get("question");
+                    String correctAnswer = (String) triviaQuestion.get("correct_answer");
+                    String diff = (String) triviaQuestion.get("difficulty");
+                    String cat = (String) triviaQuestion.get("category");
+                    List<String> incorrectAnswers = (List <String>) triviaQuestion.get("incorrect_answers");
 
-                List <String> options = new ArrayList<>(incorrectAnswers);
-                options.add(correctAnswer);
+                    List <String> options = new ArrayList<>(incorrectAnswers);
+                    options.add(correctAnswer);
 
-
-                Question question = new Question(questionText, options, correctAnswer);
-                questions.add(question);
+                    Question question = new Question(questionText, options, correctAnswer, diff, cat);
+                    questions.add(question);
+                }
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
 
-        return questions;
+            return questions;
+        }
     }
-}

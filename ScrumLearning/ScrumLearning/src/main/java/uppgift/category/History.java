@@ -8,13 +8,15 @@ import java.util.Scanner;
 
 public class History extends CategoryCommand{
 
+    private SetQuiz setDifficulty;
     private QuestionRepo questionRepo;
     public String apiUrl;
 
     public History() {
         super("History");
         this.questionRepo = new QuestionRepo();
-        this.apiUrl = "https://opentdb.com/api.php?amount=12&category=23";
+        this.setDifficulty = new SetQuiz();
+        this.apiUrl = "https://opentdb.com/api.php?amount=12&category=23&difficulty=";
     }
 
     private void handleQuiz(List<Question> historyQuestions) {
@@ -24,7 +26,7 @@ public class History extends CategoryCommand{
             for (int i = 0; i < question.getAllAnswers().size(); i++){
                 System.out.println((i + 1) + ". " + question.getAllAnswers().get(i));
             }
-            System.out.println(question.getCorrectAnswer());
+            System.out.println(question.getDifficulty());
             int answer = scanner.nextInt() -1;
             System.out.println(question.getAllAnswers().get(answer));
             System.out.println("--------------------------");
@@ -38,9 +40,9 @@ public class History extends CategoryCommand{
     @Override
     public void executeCategory() {
         System.out.println("Loading category...");
-        List<Question> historyQuestions = questionRepo.TriviaAPI(apiUrl);
+        String diff = setDifficulty.selectDifficulty();
+        List<Question> historyQuestions = questionRepo.TriviaAPI(apiUrl + diff);
         handleQuiz(historyQuestions);
     }
 
 }
-
