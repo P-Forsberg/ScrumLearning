@@ -1,9 +1,13 @@
-package uppgift.menu;
+package main.java.uppgift.menu;
 
+
+import main.java.uppgift.options.CreateQuizOption;
+import main.java.uppgift.options.PlayGameOption;
+import main.java.uppgift.options.ViewStatisticsOption;
 
 import java.util.Scanner;
-import uppgift.options.*;
-import uppgift.category.CategoryCommand;
+
+
 public class Menu {
     private MenuOption[] options;
 

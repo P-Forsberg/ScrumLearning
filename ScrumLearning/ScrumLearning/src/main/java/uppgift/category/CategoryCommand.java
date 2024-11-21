@@ -1,10 +1,10 @@
-package uppgift.category;
+package main.java.uppgift.category;
 
 import uppgift.menu.IMenuOptions;
 
 import java.util.Scanner;
 
-public abstract class CategoryCommand implements ICategoryCommand {
+public abstract class CategoryCommand implements uppgift.category.ICategoryCommand {
     private String name;
 
     public CategoryCommand(String name){
@@ -18,13 +18,13 @@ public abstract class CategoryCommand implements ICategoryCommand {
     public abstract void executeCategory();
 
     public static void showCategoryMenu() {
-        ICategoryCommand[] categories = {
+        uppgift.category.ICategoryCommand[] categories = {
                 new Sport(),
                 new Music(),
                 new Animals(),
                 new History(),
                 new Geography(),
-                //new Mix() hämtade spara till fil quiz
+                new SelfmadeQuiz(),
                 // Lägg till fler kategorier här
         };
 
