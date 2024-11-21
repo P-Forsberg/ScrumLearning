@@ -1,19 +1,19 @@
-package uppgift.menu;
+package menu;
 
-import uppgift.category.CategoryCommand;
-import uppgift.category.Sport;
+import Options.CreateQuizOption;
+import Options.PlayGameOption;
+import Options.ViewStatisticsOption;
 
 import java.util.Scanner;
 
-public class Menu{
-    private IMenuOptions direction;
-    private final IMenuOptions[] options;
+public class Menu {
+    private MenuOption[] options;
 
-   public Menu() {
-        options = new IMenuOptions[] {
-                new PlayGameOption(),
-                new CreateQuizOption(),
-                new ViewStatisticsOption()
+    public Menu() {
+        options = new MenuOption[] {
+                  new PlayGameOption(),
+                  new CreateQuizOption(),
+                  new ViewStatisticsOption()
         };
     }
 
