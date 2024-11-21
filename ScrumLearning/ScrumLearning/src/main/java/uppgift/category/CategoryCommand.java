@@ -24,7 +24,7 @@ public abstract class CategoryCommand implements ICategoryCommand {
                 new Animals(),
                 new History(),
                 new Geography(),
-                //new Mix() hämtade spara till fil quiz
+                new OwnMadeQuiz()
                 // Lägg till fler kategorier här
         };
 

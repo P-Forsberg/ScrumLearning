@@ -25,7 +25,7 @@ public class Menu {
             System.out.println("1. Play the quiz");
             System.out.println("2. Make your own quiz");
             System.out.println("3. View your game stats");
-            System.out.println("4. End the quiz");
+            System.out.println("4. End the quiz"); //Kan hoppa tillbaka till UserManager.
 
             int choice = scanner.nextInt();
 
