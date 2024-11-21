@@ -1,11 +1,9 @@
 package uppgift.menu;
 
-import Options.CreateQuizOption;
-import Options.PlayGameOption;
-import Options.ViewStatisticsOption;
 
 import java.util.Scanner;
-
+import uppgift.options.*;
+import uppgift.category.CategoryCommand;
 public class Menu {
     private MenuOption[] options;
 
@@ -42,28 +40,4 @@ public class Menu {
         }
 
     }
-    public class PlayGameOption implements IMenuOptions {
-
-        @Override
-        public void execute() {
-            System.out.println("Select a category to play:");
-            CategoryCommand.showCategoryMenu();
-
-        }
-    }
-    public class CreateQuizOption implements IMenuOptions {
-
-        @Override
-        public void execute() {
-            System.out.println("Getting create quiz...");
-        }
-    }
-    public class ViewStatisticsOption implements IMenuOptions {
-
-        @Override
-        public void execute() {
-            System.out.println("Getting Statistics...");
-        }
-    }
-
 }

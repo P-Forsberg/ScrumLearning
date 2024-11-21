@@ -1,6 +1,6 @@
-package Options;
+package uppgift.options;
 
-import menu.MenuOption;
+import uppgift.menu.MenuOption;
 
 public class ViewStatisticsOption implements MenuOption {
     @Override
