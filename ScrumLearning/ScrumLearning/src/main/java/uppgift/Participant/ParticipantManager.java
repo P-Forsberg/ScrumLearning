@@ -1,4 +1,4 @@
-package Participant;
+package uppgift.Participant;
 
 public class ParticipantManager {
     private int numberOfParticipants;

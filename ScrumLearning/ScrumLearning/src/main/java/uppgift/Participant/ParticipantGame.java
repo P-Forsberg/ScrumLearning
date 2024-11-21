@@ -1,12 +1,12 @@
-package Participant;
+package uppgift.Participant;
 
 import java.util.Scanner;
 
 public class ParticipantGame {
-    private final Participant.ParticipantManager participantManager;
+    private final ParticipantManager participantManager;
 
     public ParticipantGame() {
-        this.participantManager = new Participant.ParticipantManager();
+        this.participantManager = new ParticipantManager();
     }
 
     public void displayWelcomeMessage() {

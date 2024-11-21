@@ -1,4 +1,4 @@
-package user;
+package uppgift.user;
 
 import java.util.Scanner;
 

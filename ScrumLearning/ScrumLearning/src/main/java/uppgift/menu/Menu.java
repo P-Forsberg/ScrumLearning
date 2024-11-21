@@ -1,4 +1,4 @@
-package menu;
+package uppgift.menu;
 
 import Options.CreateQuizOption;
 import Options.PlayGameOption;
