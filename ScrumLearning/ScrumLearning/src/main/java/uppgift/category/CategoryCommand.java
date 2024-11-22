@@ -18,13 +18,13 @@ public abstract class CategoryCommand implements ICategoryCommand {
     public abstract void executeCategory();
 
     public static void showCategoryMenu() {
-        ICategoryCommand[] categories = {
+        uppgift.category.ICategoryCommand[] categories = {
                 new Sport(),
                 new Music(),
                 new Animals(),
                 new History(),
                 new Geography(),
-                new OwnMadeQuiz()
+                new SelfmadeQuiz(),
                 // Lägg till fler kategorier här
         };
 

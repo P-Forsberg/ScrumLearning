@@ -1,7 +1,8 @@
 package uppgift.options;
 
-import uppgift.menu.MenuOption;
+
 import uppgift.category.CategoryCommand;
+import uppgift.menu.MenuOption;
 
 import java.util.Locale;
 
