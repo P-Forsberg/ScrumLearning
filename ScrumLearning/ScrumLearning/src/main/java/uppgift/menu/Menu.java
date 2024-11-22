@@ -1,15 +1,21 @@
-package menu;
+package main.java.uppgift.menu;
+
+
+import main.java.uppgift.options.CreateQuizOption;
+import main.java.uppgift.options.PlayGameOption;
+import main.java.uppgift.options.ViewStatisticsOption;
 
 import java.util.Scanner;
+
 
 public class Menu {
     private MenuOption[] options;
 
     public Menu() {
         options = new MenuOption[] {
-                new PlayGameOption(),
-                new CreateQuizOption(),
-                new ViewStatisticsOption()
+                  new PlayGameOption(),
+                  new CreateQuizOption(),
+                  new ViewStatisticsOption()
         };
     }
 
@@ -36,5 +42,6 @@ public class Menu {
                 System.out.println("Invalid choice, try again.");
             }
         }
+
     }
 }

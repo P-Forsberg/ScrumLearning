@@ -1,9 +1,13 @@
 package main.java.uppgift;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import main.java.uppgift.menu.Menu;
+
 public class Application {
+    private boolean running;
     public static void main(String[] args) {
-        System.out.println("hej");
+        System.out.Println("Application");
+        Menu menu = new Menu();
+        menu.displayMenu();
+
     }
 }

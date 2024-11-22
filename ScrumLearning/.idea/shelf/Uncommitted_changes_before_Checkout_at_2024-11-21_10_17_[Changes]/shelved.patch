@@ -1,0 +1,17 @@
+Index: ScrumLearning/src/main/java/uppgift/category/SetQuiz.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package uppgift.category;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class SetQuiz {\r\n\r\n    public String selectCategory(){\r\n\r\n        return \"\";\r\n    }\r\n    public String selectDifficulty(){\r\n        Scanner scanner = new Scanner(System.in);\r\n\r\n        System.out.println(\"Select difficulty\");\r\n        System.out.println(\"1. Easy\");\r\n        System.out.println(\"2. Medium\");\r\n        System.out.println(\"3. Hard\");\r\n\r\n        int choice = scanner.nextInt();\r\n        switch(choice){\r\n            case 1:\r\n                return \"easy\";\r\n            case 2:\r\n                return \"medium\";\r\n            case 3:\r\n                return \"hard\";\r\n            default:\r\n                System.out.println(\"Invalid choice, defaulting to 'easy'\");\r\n                return \"easy\";\r\n        }\r\n\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/ScrumLearning/src/main/java/uppgift/category/SetQuiz.java b/ScrumLearning/src/main/java/uppgift/category/SetQuiz.java
+--- a/ScrumLearning/src/main/java/uppgift/category/SetQuiz.java	(revision 64f6f07afad3d4056d8217d651377479f7dfa78d)
++++ b/ScrumLearning/src/main/java/uppgift/category/SetQuiz.java	(date 1732116919604)
+@@ -5,7 +5,7 @@
+ public class SetQuiz {
+ 
+     public String selectCategory(){
+-
++        System.out.println();
+         return "";
+     }
+     public String selectDifficulty(){
