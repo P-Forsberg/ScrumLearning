@@ -24,5 +24,9 @@ public class Users {
     public static boolean usernameExists(String username) {
         return registeredUsernames.contains(username);
     }
+
+    public static Set<String> getRegisteredUsernames() {
+        return registeredUsernames;
+    }
 }
 
