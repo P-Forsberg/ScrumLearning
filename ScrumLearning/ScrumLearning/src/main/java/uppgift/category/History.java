@@ -2,7 +2,6 @@ package uppgift.category;
 
 import uppgift.question.Question;
 import uppgift.question.QuestionRepo;
-import uppgift.statistics.StatisticSaver;
 
 import java.util.List;
 import java.util.Random;
@@ -13,7 +12,6 @@ public class History extends CategoryCommand{
     private SetQuiz setDifficulty;
     private QuestionRepo questionRepo;
     public String apiUrl;
-    private StatisticSaver.FileStatisticSaver statisticSaver;
 
     public History() {
         super("History");

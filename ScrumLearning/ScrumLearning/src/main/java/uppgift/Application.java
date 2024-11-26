@@ -2,6 +2,7 @@ package uppgift;
 import uppgift.menu.Menu;
 import uppgift.participant.ParticipantGame;
 import uppgift.user.UserManager;
+import uppgift.user.Users;
 
 
 public class Application {
