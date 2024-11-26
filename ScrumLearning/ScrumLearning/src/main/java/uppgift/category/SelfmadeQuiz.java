@@ -2,6 +2,7 @@ package main.java.uppgift.category;
 
 
 import main.java.uppgift.options.PlayerQuizMaker;
+import score.ScoreManager;
 
 import java.io.IOException;
 import java.util.Random;
@@ -10,10 +11,12 @@ import java.util.List;
 
 public class SelfmadeQuiz extends CategoryCommand {
     private PlayerQuizMaker quizMaker;
+    private ScoreManager scoreManager;
 
     public SelfmadeQuiz() {
         super("Selfmade Quiz");
         quizMaker = new PlayerQuizMaker();
+        scoreManager = new ScoreManager();
 
         try {
             quizMaker.loadQuiz();
@@ -29,6 +32,8 @@ public class SelfmadeQuiz extends CategoryCommand {
             return;
         }
 
+        scoreManager.reset();
+
         Random random = new Random();
         int quizIndex = random.nextInt(quizMaker.getQuizzes().size());
 
@@ -43,13 +48,18 @@ public class SelfmadeQuiz extends CategoryCommand {
             System.out.println("Question " + (i+ 1) + ": " + questions.get(i));
             String userAnswer = scanner.nextLine();
 
+            scoreManager.incrementTotalQuestions();
+
             if (userAnswer.equalsIgnoreCase(answer.get(i))) {
                 System.out.println("Correct!");
-                score++;
+                scoreManager.incrementScore();
             } else {
                 System.out.println("Wrong! The correct answer was: " + answer.get(i));
             }
+
+            scoreManager.displayCurrentScore();
         }
-        System.out.println("Quiz finished! Your score: " + score + "/" + questions.size());
+        System.out.println("Quiz finished! Your final score: " + scoreManager.getScore() + "/" + scoreManager.getTotalQuestions());
+        System.out.println();
     }
 }
