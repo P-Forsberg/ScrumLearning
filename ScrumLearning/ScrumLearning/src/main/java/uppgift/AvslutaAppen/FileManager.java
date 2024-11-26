@@ -1,23 +1,3 @@
-// package main.java.uppgift.AvslutaAppen;
-
-// import java.io.BufferedReader;
-// import java.io.File;
-// import java.io.FileReader;
-// import java.io.FileWriter;
-// import java.util.ArrayList;
-// import java.util.List;
-
-// import main.java.uppgift.saveandload.SaveAndLoad;
-
-// public class FileManager implements SaveAndLoad {
-//     @Override
-//     public void saveFile() throws IOException {
-//         // jag kan lägga till kod för att spara quiz här
-//         System.out.println("Sparar quiz...");
-//         // jag kan lägga till kod för att spara till en fil
-//     }
-
-// }
 package main.java.uppgift.AvslutaAppen;
 
 import java.io.BufferedWriter;
