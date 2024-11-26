@@ -5,7 +5,7 @@ import uppgift.user.UserManager;
 
 
 public class Application {
-
+    private boolean running;
     public static void main(String[] args){
 
     Menu menu = new Menu();
