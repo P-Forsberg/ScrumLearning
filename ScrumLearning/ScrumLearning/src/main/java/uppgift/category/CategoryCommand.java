@@ -4,7 +4,7 @@ import uppgift.menu.IMenuOptions;
 
 import java.util.Scanner;
 
-public abstract class CategoryCommand implements uppgift.category.ICategoryCommand {
+public abstract class CategoryCommand implements ICategoryCommand {
     private String name;
 
     public CategoryCommand(String name){

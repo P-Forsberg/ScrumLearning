@@ -43,5 +43,4 @@ public class Animals extends CategoryCommand {
             List<Question> animalQuestions = questionRepo.TriviaAPI(apiUrl + diff);
             handleQuiz(animalQuestions);
         }
-
-    }
+}

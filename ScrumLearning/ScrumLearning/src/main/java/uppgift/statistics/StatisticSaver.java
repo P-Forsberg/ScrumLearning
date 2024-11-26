@@ -6,7 +6,7 @@ import java.io.IOException;
 public interface StatisticSaver {
     void saveStatistics(String playerName, int score, int questionsAttempted, int correctAnswers, double accuracy);
 
-    static class FileStatisticSaver implements StatisticSaver {
+     class FileStatisticSaver implements StatisticSaver {
         private String filePath;
 
         public FileStatisticSaver(String filePath) {

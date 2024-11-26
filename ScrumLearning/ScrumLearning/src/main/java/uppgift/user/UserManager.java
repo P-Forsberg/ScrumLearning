@@ -1,12 +1,15 @@
 package uppgift.user;
 
+import uppgift.menu.Menu;
 import java.util.Scanner;
 
 public class UserManager {
     private Scanner scanner;
+    private Menu menu;
 
     public UserManager() {
         this.scanner = new Scanner(System.in);
+        this.menu = new Menu();
     }
 
     public void start() {
@@ -16,7 +19,7 @@ public class UserManager {
             System.out.println();
             switch (choice) {
                 case "1":
-                    if(loginUser()) return;
+                    loginUser();
                     break ;
                 case "2":
                     registerNewUser();
@@ -46,26 +49,21 @@ public class UserManager {
             System.out.println("Username is already taken. Please try again.");
         } else {
             Users newUser = new Users(username);
-            System.out.println("Welcome, " + newUser.getUsername() + "!");
+            System.out.println("Welcome, " + newUser.getUsername() + "!" + "\n");
+            menu.displayMenu();
         }
     }
 
-    private boolean loginUser() {
+    private void loginUser() {
         System.out.print("Enter your username: ");
         String username = scanner.nextLine();
 
         if (Users.usernameExists(username)) {
             System.out.println("Welcome back, " + username + "!");
-            return true;
-
         } else {
             System.out.println("Username not found. Please register as a new user.");
         }
-        return false;
     }
-
-    public Users getUsers(){return newUser;}
-
     public void close() {
         scanner.close();
     }
