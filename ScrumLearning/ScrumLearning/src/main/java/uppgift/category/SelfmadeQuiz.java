@@ -3,6 +3,7 @@ package uppgift.category;
 
 import uppgift.options.PlayerQuizMaker;
 import uppgift.score.ScoreManager;
+import uppgift.statistics.LeaderboardManager;
 
 import java.io.IOException;
 import java.util.Random;
@@ -60,5 +61,8 @@ public class SelfmadeQuiz extends CategoryCommand {
         }
         System.out.println("Quiz finished! Your final score: " + scoreManager.getScore() + "/" + scoreManager.getTotalQuestions());
         System.out.println();
+
+        LeaderboardManager leaderboard = new LeaderboardManager();
+        leaderboard.addResult("Selfmade Quiz", scoreManager.getScore(),scoreManager.getTotalQuestions());
     }
 }
