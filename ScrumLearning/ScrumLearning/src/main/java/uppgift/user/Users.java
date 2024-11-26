@@ -25,4 +25,3 @@ public class Users {
         return registeredUsernames.contains(username);
     }
 }
-

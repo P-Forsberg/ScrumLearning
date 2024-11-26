@@ -56,6 +56,7 @@ public class UserManager {
 
         if (Users.usernameExists(username)) {
             System.out.println("Welcome back, " + username + "!");
+
         } else {
             System.out.println("Username not found. Please register as a new user.");
         }

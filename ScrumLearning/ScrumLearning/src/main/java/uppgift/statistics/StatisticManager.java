@@ -1,4 +1,4 @@
-package main.java.uppgift.Statistics;
+package uppgift.statistics;
 
 public class StatisticManager {
     private int score;

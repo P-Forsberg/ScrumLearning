@@ -1,7 +1,7 @@
-package main.java.uppgift.options;
+package uppgift.options;
 
 
-import main.java.uppgift.menu.MenuOption;
+import uppgift.menu.MenuOption;
 
 public class CreateQuizOption implements MenuOption {
     private PlayerQuizMaker quizMaker;

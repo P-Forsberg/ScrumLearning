@@ -1,9 +1,9 @@
-package main.java.uppgift.menu;
+package uppgift.menu;
 
 
-import main.java.uppgift.options.CreateQuizOption;
-import main.java.uppgift.options.PlayGameOption;
-import main.java.uppgift.options.ViewStatisticsOption;
+import uppgift.options.CreateQuizOption;
+import uppgift.options.PlayGameOption;
+import uppgift.options.ViewStatisticsOption;
 
 import java.util.Scanner;
 
