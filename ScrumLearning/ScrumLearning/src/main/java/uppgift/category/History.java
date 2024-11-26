@@ -2,6 +2,8 @@ package uppgift.category;
 
 import uppgift.question.Question;
 import uppgift.question.QuestionRepo;
+import uppgift.statistics.StatisticSaver;
+
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -11,12 +13,14 @@ public class History extends CategoryCommand{
     private SetQuiz setDifficulty;
     private QuestionRepo questionRepo;
     public String apiUrl;
+    private StatisticSaver.FileStatisticSaver statisticSaver;
 
     public History() {
         super("History");
         this.questionRepo = new QuestionRepo();
         this.setDifficulty = new SetQuiz();
         this.apiUrl = "https://opentdb.com/api.php?amount=12&category=23&difficulty=";
+
     }
 
     private void handleQuiz(List<Question> historyQuestions) {

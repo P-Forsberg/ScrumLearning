@@ -1,4 +1,4 @@
-package score;
+package uppgift.score;
 
 public class ScoreManager {
     private int score;

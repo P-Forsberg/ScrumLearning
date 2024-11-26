@@ -1,4 +1,4 @@
-package main.java.uppgift.category;
+package uppgift.category;
 
 import uppgift.menu.IMenuOptions;
 

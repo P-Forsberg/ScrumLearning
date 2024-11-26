@@ -1,4 +1,4 @@
-package uppgift.Participant;
+package uppgift.participant;
 
 import java.util.Scanner;
 

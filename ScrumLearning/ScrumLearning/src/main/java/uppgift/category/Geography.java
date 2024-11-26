@@ -17,7 +17,6 @@ public class Geography extends CategoryCommand{
         this.questionRepo = new QuestionRepo();
         //this.apiUrl = "https://opentdb.com/api.php?amount=12&category=22&difficulty=";
         this.apiUrl = "https://opentdb.com/api.php?amount=12&category=22&difficulty=";
-
     }
 
 

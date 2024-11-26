@@ -7,5 +7,4 @@ public class ViewStatisticsOption implements MenuOption {
     public void execute() {
         System.out.println("Viewing your game stats: ");
     }
-
 }

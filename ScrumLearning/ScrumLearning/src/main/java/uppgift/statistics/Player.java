@@ -1,4 +1,4 @@
-package main.java.uppgift.Statistics;
+package uppgift.statistics;
 
 public class Player {
     private String name;
