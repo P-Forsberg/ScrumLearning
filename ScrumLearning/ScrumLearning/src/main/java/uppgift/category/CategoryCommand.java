@@ -1,7 +1,5 @@
 package uppgift.category;
 
-import uppgift.menu.IMenuOptions;
-
 import java.util.Scanner;
 
 public abstract class CategoryCommand implements ICategoryCommand {
@@ -18,7 +16,7 @@ public abstract class CategoryCommand implements ICategoryCommand {
     public abstract void executeCategory();
 
     public static void showCategoryMenu() {
-        uppgift.category.ICategoryCommand[] categories = {
+        ICategoryCommand[] categories = {
                 new Sport(),
                 new Music(),
                 new Animals(),

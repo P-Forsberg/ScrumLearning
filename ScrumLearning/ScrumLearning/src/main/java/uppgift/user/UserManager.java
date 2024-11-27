@@ -1,11 +1,13 @@
 package uppgift.user;
 
+import uppgift.Statistics.Player;
 import uppgift.menu.Menu;
 import java.util.Scanner;
 
 public class UserManager {
     private Scanner scanner;
     private Menu menu;
+    private Player player;
 
     public UserManager() {
         this.scanner = new Scanner(System.in);

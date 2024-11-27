@@ -1,6 +1,8 @@
 package uppgift.category;
 
 import uppgift.Statistics.StatisticSaver.FileStatisticSaver;
+
+
 import uppgift.Statistics.StatisticManager;
 import uppgift.question.Question;
 import uppgift.question.QuestionRepo;
@@ -15,6 +17,7 @@ public class History extends CategoryCommand{
     private StatisticManager statisticManager;
     private FileStatisticSaver statisticSaver;
 
+
     public History() {
         super("History");
         this.questionRepo = new QuestionRepo();
@@ -22,7 +25,6 @@ public class History extends CategoryCommand{
         this.apiUrl = "https://opentdb.com/api.php?amount=12&category=23&difficulty=";
         this.statisticSaver = new FileStatisticSaver("statistics.txt");
         this.statisticManager = new StatisticManager();
-
     }
 
     private void handleQuiz(List<Question> historyQuestions) {

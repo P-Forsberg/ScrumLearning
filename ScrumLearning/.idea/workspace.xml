@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61027f8b-3d25-4942-913c-08fb6b8bade4" name="Changes" comment="merge" />
+    <list default="true" id="61027f8b-3d25-4942-913c-08fb6b8bade4" name="Changes" comment="Statestik syns och sparas i history">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/Statistics/StatisticManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/Statistics/StatisticManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/category/CategoryCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/category/CategoryCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/category/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/category/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/options/ViewStatisticsOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/options/ViewStatisticsOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/user/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/user/UserManager.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,14 +86,20 @@
     "Gradle.ScrumLearning [:uppgift.Application.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Shell Script.gradlew.executor": "Run",
+    "git-widget-placeholder": "12-quiz-kategorier",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/pontu/Documents/Java/Övning",
+    "last_opened_file_path": "C:/Users/pontu/Documents/Java/Individuel 2",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pontu\Documents\Java\ScrumLearning\ScrumLearning\src\main\java\uppgift" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="uppgift.Application" />
@@ -192,7 +207,14 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1732181389757</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="Statestik syns och sparas i history">
+      <option name="closed" value="true" />
+      <created>1732619035100</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1732619035100</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -203,6 +225,8 @@
     <MESSAGE value="better menu" />
     <MESSAGE value="categori + api fixed" />
     <MESSAGE value="merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge" />
+    <MESSAGE value="Statestik syns och sparas i history" />
+    <option name="LAST_COMMIT_MESSAGE" value="Statestik syns och sparas i history" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
