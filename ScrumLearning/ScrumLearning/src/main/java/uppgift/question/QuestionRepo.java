@@ -41,6 +41,8 @@ public class QuestionRepo {
                     List <String> options = new ArrayList<>(incorrectAnswers);
                     options.add(correctAnswer);
 
+                    Collections.shuffle(options);
+
                     Question question = new Question(questionText, options, correctAnswer, diff, cat);
                     questions.add(question);
                 }

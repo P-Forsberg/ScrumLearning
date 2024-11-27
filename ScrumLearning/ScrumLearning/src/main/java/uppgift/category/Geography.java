@@ -28,7 +28,6 @@ public class Geography extends CategoryCommand{
                 for (int i = 0; i < question.getAllAnswers().size(); i++){
                     System.out.println((i + 1) + ". " + question.getAllAnswers().get(i));
                 }
-                System.out.println(question.getDifficulty());
 
                 int answer = scanner.nextInt() -1;
                 System.out.println("--------------------------");
@@ -41,8 +40,8 @@ public class Geography extends CategoryCommand{
         }
         @Override
         public void executeCategory() {
-            System.out.println("Loading category...");
             String diff = setDifficulty.selectDifficulty();
+            System.out.println("Loading category...");
             List<Question> geographyQuestions = questionRepo.TriviaAPI(apiUrl + diff);
             handleQuiz(geographyQuestions);
         }

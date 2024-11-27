@@ -19,7 +19,7 @@ public class History extends CategoryCommand{
         super("History");
         this.questionRepo = new QuestionRepo();
         this.setDifficulty = new SetQuiz();
-        this.apiUrl = "https://opentdb.com/api.php?amount=12&category=23&difficulty=";
+        this.apiUrl = "https://opentdb.com/api.php?amount=2&category=23&difficulty=";
         this.statisticSaver = new FileStatisticSaver("statistics.txt");
         this.statisticManager = new StatisticManager();
 
@@ -37,7 +37,6 @@ public class History extends CategoryCommand{
             for (int i = 0; i < question.getAllAnswers().size(); i++){
                 System.out.println((i + 1) + ". " + question.getAllAnswers().get(i));
             }
-            System.out.println(question.getDifficulty());
             int answer = scanner.nextInt() -1;
 
             System.out.println(question.getAllAnswers().get(answer));
@@ -67,8 +66,8 @@ public class History extends CategoryCommand{
 
     @Override
     public void executeCategory() {
-        System.out.println("Loading category...");
         String diff = setDifficulty.selectDifficulty();
+        System.out.println("Loading category...");
         List<Question> historyQuestions = questionRepo.TriviaAPI(apiUrl + diff);
         handleQuiz(historyQuestions);
     }

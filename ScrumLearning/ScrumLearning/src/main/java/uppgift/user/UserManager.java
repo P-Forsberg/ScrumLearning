@@ -19,8 +19,8 @@ public class UserManager {
             System.out.println();
             switch (choice) {
                 case "1":
-                    loginUser();
-                    break ;
+                    if(loginUser()) return;
+                    break;
                 case "2":
                     registerNewUser();
                     break;
@@ -50,18 +50,19 @@ public class UserManager {
         } else {
             Users newUser = new Users(username);
             System.out.println("Welcome, " + newUser.getUsername() + "!" + "\n");
-            menu.displayMenu();
         }
     }
 
-    private void loginUser() {
+    private boolean loginUser() {
         System.out.print("Enter your username: ");
         String username = scanner.nextLine();
 
         if (Users.usernameExists(username)) {
             System.out.println("Welcome back, " + username + "!");
+            return true;
         } else {
             System.out.println("Username not found. Please register as a new user.");
+            return false;
         }
     }
     public void close() {

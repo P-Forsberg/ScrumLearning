@@ -1,6 +1,6 @@
 Statistics for Player1:
-Score: 70
-Questions Attempted: 12
-Correct Answers: 7
-Accuracy: 58.33%
+Score: 10
+Questions Attempted: 2
+Correct Answers: 1
+Accuracy: 50.00%
 -----------------------
