@@ -1,4 +1,4 @@
-package main.java.uppgift.category;
+package uppgift.category;
 
 import uppgift.menu.IMenuOptions;
 
@@ -43,5 +43,6 @@ public abstract class CategoryCommand implements uppgift.category.ICategoryComma
             System.out.println("Invalid choice, returning to menu.");
         }
     }
+
 
 }

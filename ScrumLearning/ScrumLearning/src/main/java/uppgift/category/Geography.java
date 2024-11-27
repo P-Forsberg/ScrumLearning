@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class Geography extends CategoryCommand{
 
-    private SetQuiz setDifficulty;
+    private uppgift.category.SetQuiz setDifficulty;
     private QuestionRepo questionRepo;
     public String apiUrl;
 
     public Geography() {
         super("Geography");
-        this.setDifficulty = new SetQuiz();
+        this.setDifficulty = new uppgift.category.SetQuiz();
         this.questionRepo = new QuestionRepo();
         //this.apiUrl = "https://opentdb.com/api.php?amount=12&category=22&difficulty=";
         this.apiUrl = "https://opentdb.com/api.php?amount=12&category=22&difficulty=";

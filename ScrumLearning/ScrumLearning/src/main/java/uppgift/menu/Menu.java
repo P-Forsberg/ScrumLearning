@@ -1,4 +1,4 @@
-package main.java.uppgift.menu;
+package uppgift.menu;
 
 
 import main.java.uppgift.options.CreateQuizOption;

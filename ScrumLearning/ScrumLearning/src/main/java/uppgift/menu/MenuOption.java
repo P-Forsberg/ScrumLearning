@@ -1,4 +1,4 @@
-package main.java.uppgift.menu;
+package uppgift.menu;
 
 public interface MenuOption {
     void execute();

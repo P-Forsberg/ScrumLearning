@@ -1,4 +1,4 @@
-package main.java.uppgift.options;
+package uppgift.options;
 
 
 import main.java.uppgift.menu.MenuOption;

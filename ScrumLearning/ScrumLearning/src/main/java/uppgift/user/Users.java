@@ -9,6 +9,9 @@ public class Users {
     private static Set<String> registeredUsernames = new HashSet<>();
 
     public Users(String username) {
+        if (isUsernameTaken(username)) {
+            throw new IllegalArgumentException("Username already taken.");
+        }
         this.username = username;
         registeredUsernames.add(username);
     }
@@ -20,9 +23,4 @@ public class Users {
     public String getUsername() {
         return username;
     }
-
-    public static boolean usernameExists(String username) {
-        return registeredUsernames.contains(username);
-    }
 }
-

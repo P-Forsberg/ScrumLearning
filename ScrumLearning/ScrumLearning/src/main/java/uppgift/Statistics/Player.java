@@ -1,18 +1,20 @@
-package main.java.uppgift.Statistics;
+package uppgift.Statistics;
+
+import uppgift.user.Users;
 
 public class Player {
-    private String name;
+    private Users user;
     private StatisticManager statisticManager;
     private StatisticSaver statisticSaver;
 
-    public Player(String name, StatisticSaver statisticSaver) {
-        this.name = name;
+    public Player(String username, StatisticSaver statisticSaver) {
+        this.user = new Users(username);
         this.statisticManager = new StatisticManager();
         this.statisticSaver = statisticSaver;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return user.getUsername();
     }
 
     public StatisticManager getStatisticManager() {
@@ -26,7 +28,7 @@ public class Player {
     public void saveStatistics() {
         if (statisticSaver != null) {
             statisticSaver.saveStatistics(
-                    name,
+                    getUsername(),
                     statisticManager.getScore(),
                     statisticManager.getQuestionsAttempted(),
                     statisticManager.getCorrectAnswers(),
@@ -36,6 +38,7 @@ public class Player {
     }
 
     public void displayStatistics() {
-        statisticManager.displayStatistics(name);
+        statisticManager.displayStatistics(getUsername());
     }
 }
+
