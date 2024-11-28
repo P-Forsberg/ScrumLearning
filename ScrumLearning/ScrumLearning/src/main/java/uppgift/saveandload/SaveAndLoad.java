@@ -1,4 +1,4 @@
-package main.java.uppgift.saveandload;
+package uppgift.saveandload;
 
 import java.io.IOException;
 

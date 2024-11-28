@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 public class Animals extends CategoryCommand {
 
-    private SetQuiz setDifficulty;
+    private uppgift.category.SetQuiz setDifficulty;
     private QuestionRepo questionRepo;
     public String apiUrl;
 
     public Animals() {
         super("Animals");
         this.questionRepo = new QuestionRepo();
-        this.setDifficulty = new SetQuiz();
+        this.setDifficulty = new uppgift.category.SetQuiz();
         this.apiUrl = "https://opentdb.com/api.php?amount=12&category=27&difficulty=";
     }
 

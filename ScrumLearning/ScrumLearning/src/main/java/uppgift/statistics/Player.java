@@ -1,18 +1,30 @@
 package uppgift.statistics;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Player {
-    private String name;
+    private String username;
+    private static Set<String> registeredUsernames = new HashSet<>();
     private StatisticManager statisticManager;
     private StatisticSaver statisticSaver;
 
-    public Player(String name, StatisticSaver statisticSaver) {
-        this.name = name;
+    public Player(String username, StatisticSaver statisticSaver) {
+        if (isUsernameTaken(username)) {
+            throw new IllegalArgumentException("Username already taken.");
+        }
+        this.username = username;
+        registeredUsernames.add(username);
         this.statisticManager = new StatisticManager();
         this.statisticSaver = statisticSaver;
     }
 
-    public String getName() {
-        return name;
+    public static boolean isUsernameTaken(String username) {
+        return registeredUsernames.contains(username);
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public StatisticManager getStatisticManager() {
@@ -26,7 +38,7 @@ public class Player {
     public void saveStatistics() {
         if (statisticSaver != null) {
             statisticSaver.saveStatistics(
-                    name,
+                    getUsername(),
                     statisticManager.getScore(),
                     statisticManager.getQuestionsAttempted(),
                     statisticManager.getCorrectAnswers(),
@@ -36,6 +48,7 @@ public class Player {
     }
 
     public void displayStatistics() {
-        statisticManager.displayStatistics(name);
+        statisticManager.displayStatistics(getUsername());
     }
 }
+
