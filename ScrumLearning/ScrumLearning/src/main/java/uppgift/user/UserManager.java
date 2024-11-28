@@ -19,14 +19,14 @@ public class UserManager {
     }
 
     public Player start() {
-        while (currp == null) {
+        while (true) {
             displayMenu();
             String choice = scanner.nextLine();
             System.out.println();
             switch (choice) {
                 case "1":
                     loginUser();
-                    break;
+                    return currp;
                 case "2":
                     registerNewUser();
                     break;
@@ -38,7 +38,6 @@ public class UserManager {
                     break;
             }
         }
-        return currp;
     }
 
     private void displayMenu() {

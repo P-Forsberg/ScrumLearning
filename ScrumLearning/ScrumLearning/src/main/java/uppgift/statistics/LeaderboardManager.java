@@ -10,7 +10,7 @@ public class LeaderboardManager {
 
     public LeaderboardManager() {
         stats = new HashMap<>();
-        loadStats();
+        //loadStats();
     }
 
     public void addResult(String category, int score, int totalQuestions) {

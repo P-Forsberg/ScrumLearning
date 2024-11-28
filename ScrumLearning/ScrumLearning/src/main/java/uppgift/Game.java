@@ -41,7 +41,7 @@ public class Game {
                 case 4:
                     options[choice -1].execute();
                     break;
-                case 6:
+                case 5:
                     return;
                 default:
                     System.out.println("Invalid choice, try again.");
