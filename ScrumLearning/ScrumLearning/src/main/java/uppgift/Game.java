@@ -11,9 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class Game {
-    Menu menu;
+    private Menu menu;
     private Player currentPlayer;
     private List<Player> players;
     private CategoryCommand categoryCommand;
@@ -25,26 +24,32 @@ public class Game {
         this.menu = new Menu();
     }
 
-    public void game(){
-
-       int choice = menu.displayMenu();
-       MenuOption[] optionList = menu.getOptions();
-
-      boolean running = true;
-      while(running){
-         if (choice == -1 ) System.out.println("enter a valid option");
-         if (choice > -1 && choice <= optionList.length) {
-             optionList[choice -1].execute();
-             running = false;
-         }
-      }
-        Category category = categoryCommand.showCategoryMenu();
-        category.executeCategory();
-        List<Question> questions = category.getQuestions();
-        System.out.println(questions);
-
-        handleQuiz(currentPlayer, questions);
+    public void game() {
+        System.out.println(currentPlayer.getUsername());
+        MenuOption options[] = menu.getOptions();
+        while(true){
+            int choice = menu.mainMenu();
+            switch (choice) {
+                case 1:
+                    Category category = categoryCommand.showCategoryMenu();
+                    category.executeCategory();
+                    List<Question> questions = category.getQuestions();
+                    handleQuiz(currentPlayer, questions);
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    options[choice -1].execute();
+                    break;
+                case 6:
+                    return;
+                default:
+                    System.out.println("Invalid choice, try again.");
+                    break;
+            }
+        }
     }
+
 
     private void handleQuiz(Player currentPlayer, List<Question> questions) {
         Scanner scanner = new Scanner(System.in);
@@ -57,10 +62,10 @@ public class Game {
             System.out.println(question.getAllAnswers().get(answer));
             System.out.println("--------------------------");
             if(question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())){
-                System.out.println("Correct");
+                System.out.println(PrintUtil.GREEN + "Correct" + PrintUtil.RESET);
                 currentPlayer.updateStatistics(true);
             } else{
-                System.out.println("Wrong");
+                System.out.println(PrintUtil.RED + "Wrong" + PrintUtil.RESET);
                 currentPlayer.updateStatistics(false);
             }
         }

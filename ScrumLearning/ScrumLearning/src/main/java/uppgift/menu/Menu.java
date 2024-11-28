@@ -21,9 +21,8 @@ public class Menu {
         };
     }
 
-    public int displayMenu() {
+    public int mainMenu() {
         Scanner scanner = new Scanner(System.in);
-        boolean running = true;
             System.out.println("Welcome to the quiz!");
             System.out.println("Chose an option below: ");
             System.out.println("1. Play the quiz");
@@ -31,16 +30,10 @@ public class Menu {
             System.out.println("3. View your game stats");
             System.out.println("4. View leaderboard");
             System.out.println("5. End the quiz"); //Kan hoppa tillbaka till UserManager.
-
-            int choice = scanner.nextInt();
-            if (choice > 0 && choice <= 5) {
-                return choice;
-            } else {
-                return -1;
-            }
+            return scanner.nextInt();
     }
 
-    public MenuOption[] getOptions() {
-        return options;
-    }
+        public MenuOption[] getOptions () {
+            return options;
+        }
 }

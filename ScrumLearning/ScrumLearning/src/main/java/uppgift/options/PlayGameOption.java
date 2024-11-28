@@ -1,7 +1,6 @@
 package uppgift.options;
 
 
-import uppgift.category.Category;
 import uppgift.menu.MenuOption;
 import uppgift.category.CategoryCommand;
 

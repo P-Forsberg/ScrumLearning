@@ -1,7 +1,5 @@
 package uppgift.category;
 
-import uppgift.menu.IMenuOptions;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +7,6 @@ import java.util.Scanner;
 
 public  class CategoryCommand  {
 
-    List<Category> categories;
     public Category showCategoryMenu() {
         List<Category> categories;
         categories = new ArrayList<>(Arrays.asList(

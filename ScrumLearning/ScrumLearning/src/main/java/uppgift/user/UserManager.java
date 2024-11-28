@@ -32,8 +32,10 @@ public class UserManager {
                     break;
                 case "0":
                     System.out.println("Exiting the system. Goodbye!");
+                    return null;
                 default:
                     System.out.println("Invalid choice. Please select a valid option.");
+                    break;
             }
         }
         return currp;
