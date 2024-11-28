@@ -1,4 +1,4 @@
-package uppgift.Statistics;
+package uppgift.statistics;
 
 import java.io.FileWriter;
 import java.io.IOException;

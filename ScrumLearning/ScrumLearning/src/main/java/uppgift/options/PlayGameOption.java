@@ -1,8 +1,8 @@
 package uppgift.options;
 
 
-import main.java.uppgift.category.CategoryCommand;
-import main.java.uppgift.menu.MenuOption;
+import uppgift.category.CategoryCommand;
+import uppgift.menu.MenuOption;
 
 import java.util.Locale;
 
@@ -12,5 +12,4 @@ public class PlayGameOption implements MenuOption {
         System.out.println("Starting the quiz!");
         CategoryCommand.showCategoryMenu();
     }
-
 }
