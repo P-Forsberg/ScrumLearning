@@ -20,10 +20,10 @@ public class Menu {
                 new LeaderboardMenu(),
         };
     }
-    public void displayMenu() {
+
+    public int displayMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
-        while (running) {
             System.out.println("Welcome to the quiz!");
             System.out.println("Chose an option below: ");
             System.out.println("1. Play the quiz");
@@ -33,14 +33,14 @@ public class Menu {
             System.out.println("5. End the quiz"); //Kan hoppa tillbaka till UserManager.
 
             int choice = scanner.nextInt();
-            if (choice > 0 && choice <= options.length) {
-                options[choice - 1].execute();
-            } else if (choice == 5) {
-                System.out.println("Ending the quiz, see you next time!");
-                running = false;
+            if (choice > 0 && choice <= 5) {
+                return choice;
             } else {
-                System.out.println("Invalid choice, try again.");
+                return -1;
             }
-        }
+    }
+
+    public MenuOption[] getOptions() {
+        return options;
     }
 }

@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.List;
 
-public class SelfmadeQuiz extends CategoryCommand {
+public class SelfmadeQuiz extends Category {
     private PlayerQuizMaker quizMaker;
     private ScoreManager scoreManager;
 

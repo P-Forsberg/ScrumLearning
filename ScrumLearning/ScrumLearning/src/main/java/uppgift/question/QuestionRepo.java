@@ -49,7 +49,6 @@ public class QuestionRepo {
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
-
             return questions;
         }
     }
