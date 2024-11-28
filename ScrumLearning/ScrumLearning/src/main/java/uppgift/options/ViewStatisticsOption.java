@@ -12,8 +12,11 @@ public class ViewStatisticsOption implements MenuOption {
 
     @Override
     public void execute() {
-        System.out.println("Viewing your game stats: ");
-        statisticManager.displayStatistics("Player1");
+        statisticManager.loadStatistics("Player1");
+
+
+        statisticManager.displayStatistics("Player2");
+
     }
 
 }
