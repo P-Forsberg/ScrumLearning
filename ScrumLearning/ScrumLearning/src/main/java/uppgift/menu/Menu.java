@@ -4,6 +4,7 @@ package uppgift.menu;
 import uppgift.options.CreateQuizOption;
 import uppgift.options.PlayGameOption;
 import uppgift.options.ViewStatisticsOption;
+import uppgift.statistics.LeaderboardManager;
 import uppgift.statistics.LeaderboardMenu;
 
 import java.util.Scanner;
@@ -13,11 +14,14 @@ public class Menu {
     private MenuOption[] options;
 
     public Menu() {
+
+        LeaderboardManager leaderboardManager = new LeaderboardManager();
+
         options = new MenuOption[] {
                   new PlayGameOption(),
                   new CreateQuizOption(),
                   new ViewStatisticsOption(),
-                  new LeaderboardMenu()
+                  new LeaderboardMenu(leaderboardManager)
         };
     }
 

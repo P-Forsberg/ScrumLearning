@@ -62,7 +62,5 @@ public class SelfmadeQuiz extends CategoryCommand {
         System.out.println("Quiz finished! Your final score: " + scoreManager.getScore() + "/" + scoreManager.getTotalQuestions());
         System.out.println();
 
-        LeaderboardManager leaderboard = new LeaderboardManager();
-        leaderboard.addResult("Selfmade Quiz", scoreManager.getScore(),scoreManager.getTotalQuestions());
     }
 }
