@@ -14,13 +14,13 @@ import java.util.Scanner;
 
 public class Game {
     Menu menu;
-    //private Player currentPlayer;
-    //private List<player> players;
+    private Player currentPlayer;
+    private List<Player> players;
     private CategoryCommand categoryCommand;
 
-    public Game() {
-        //this.player = currentPlayer;
-        //this.players = new ArrayList<>();
+    public Game(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
+        this.players = new ArrayList<>();
         this.categoryCommand = new CategoryCommand();
         this.menu = new Menu();
     }
@@ -43,10 +43,10 @@ public class Game {
         List<Question> questions = category.getQuestions();
         System.out.println(questions);
 
-        handleQuiz(questions);
+        handleQuiz(currentPlayer, questions);
     }
 
-    private void handleQuiz(List<Question> questions) {
+    private void handleQuiz(Player currentPlayer, List<Question> questions) {
         Scanner scanner = new Scanner(System.in);
         for (Question question : questions) {
             System.out.println("Question: " + question.getQuestion());
@@ -58,9 +58,13 @@ public class Game {
             System.out.println("--------------------------");
             if(question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())){
                 System.out.println("Correct");
+                currentPlayer.updateStatistics(true);
             } else{
                 System.out.println("Wrong");
+                currentPlayer.updateStatistics(false);
             }
         }
+        currentPlayer.displayStatistics();
+        currentPlayer.saveStatistics();
     }
 }

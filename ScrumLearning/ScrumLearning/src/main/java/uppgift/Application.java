@@ -1,6 +1,7 @@
 package uppgift;
 import uppgift.menu.Menu;
 import uppgift.participant.ParticipantGame;
+import uppgift.statistics.Player;
 import uppgift.user.UserManager;
 
 
@@ -8,14 +9,11 @@ public class Application {
 
     public static void main(String[] args){
 
-    ParticipantGame pg = new ParticipantGame();
     UserManager userManager = new UserManager();
-    Game game = new Game();
+    Player currp = null;
 
-
-    userManager.start();
-    pg.displayWelcomeMessage();
-    pg.handleMenuSelection();
+    currp = userManager.start();
+    Game game = new Game(currp);
     game.game();
   }
 }
