@@ -1,4 +1,4 @@
-package uppgift.Statistics;
+package uppgift.statistics;
 
 public class StatisticManager {
     private int score;

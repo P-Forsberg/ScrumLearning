@@ -1,4 +1,4 @@
-package uppgift.Statistics;
+package uppgift.statistics;
 
 import java.util.HashSet;
 import java.util.Set;
