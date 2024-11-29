@@ -25,7 +25,7 @@ public class Game {
     }
 
     public void game() {
-        System.out.println(currentPlayer.getUsername());
+
         MenuOption options[] = menu.getOptions();
         while(true){
             int choice = menu.mainMenu();
