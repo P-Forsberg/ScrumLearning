@@ -1,0 +1,5 @@
+Statistics for Josef:
+Score: 20
+Questions Attempted: 2
+Correct Answers: 2
+Accuracy: 100.00%

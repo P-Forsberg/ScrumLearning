@@ -2,6 +2,7 @@ package uppgift.user;
 
 import uppgift.statistics.Player;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,10 +12,13 @@ public class UserManager {
     private List<Player> regPlayers;
     private Scanner scanner;
 
+    private static final String FILE_PATH = "users.txt";
+
     public UserManager() {
         this.scanner = new Scanner(System.in);
         currp = null;
         this.regPlayers = new ArrayList<>();
+        loadUsers();
     }
 
     public Player start() {
@@ -24,7 +28,11 @@ public class UserManager {
             System.out.println();
             switch (choice) {
                 case "1":
-                    if(loginUser()) return currp;
+                    if (loginUser()) {
+                        return currp;
+                    } else {
+                        System.out.println("Username not found. Please register first.");
+                    }
                     break;
                 case "2":
                     registerNewUser();
@@ -41,7 +49,7 @@ public class UserManager {
 
     private void displayMenu() {
         System.out.println("\nWelcome to Quiz");
-        System.out.println("1. Username");
+        System.out.println("1. Login");
         System.out.println("2. Register new username");
         System.out.println("0. Exit");
         System.out.print("Choose an option: ");
@@ -58,6 +66,9 @@ public class UserManager {
         }
         Player newPlayer = new Player(username);
         regPlayers.add(newPlayer);
+        System.out.println("User registered successfully!");
+        System.out.println("You can now log in with your username.");
+        saveUsers();
     }
 
     private boolean loginUser() {
@@ -70,5 +81,28 @@ public class UserManager {
             }
         }
         return false;
+    }
+
+    private void loadUsers() {
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                Player player = new Player(line.trim());
+                regPlayers.add(player);
+            }
+        } catch (IOException e) {
+            System.out.println("No previous user data found, starting fresh.");
+        }
+    }
+
+    private void saveUsers() {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_PATH))) {
+            for (Player p : regPlayers) {
+                bw.write(p.getUsername());
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error saving user data.");
+        }
     }
 }

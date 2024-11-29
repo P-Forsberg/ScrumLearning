@@ -29,14 +29,12 @@ public class Player {
         statisticManager.displayStatistics(getUsername());
     }
     public void saveStatistics() {
-            statisticManager.saveStatistics(
-                    getUsername(),
-                    statisticManager.getScore(),
-                    statisticManager.getQuestionsAttempted(),
-                    statisticManager.getCorrectAnswers(),
-                    statisticManager.calculateAccuracy()
-            );
-        }
+        statisticManager.saveStatistics(
+                getUsername(),
+                statisticManager.getScore(),
+                statisticManager.getQuestionsAttempted(),
+                statisticManager.getCorrectAnswers(),
+                statisticManager.calculateAccuracy()
+        );
     }
-
-
+}
