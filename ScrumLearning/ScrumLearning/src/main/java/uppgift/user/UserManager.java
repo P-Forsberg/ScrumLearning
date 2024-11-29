@@ -25,8 +25,8 @@ public class UserManager {
             System.out.println();
             switch (choice) {
                 case "1":
-                    loginUser();
-                    return currp;
+                    if(loginUser()) return currp;
+                    break;
                 case "2":
                     registerNewUser();
                     break;
@@ -61,13 +61,15 @@ public class UserManager {
         regPlayers.add(newPlayer);
     }
 
-    private void loginUser() {
+    private boolean loginUser() {
         System.out.print("Enter your username: ");
         String username = scanner.nextLine();
         for (Player p : regPlayers) {
             if (username.equals(p.getUsername())) {
                 currp = p;
+                return true;
             }
         }
+        return false;
     }
 }
