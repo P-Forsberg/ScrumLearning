@@ -21,21 +21,18 @@ public class LeaderboardMenu implements MenuOption {
             System.out.println("3. Tillbaka till huvudmenyn");
             System.out.print("Välj ett alternativ: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Rensa raden
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
-                    // Visa hela leaderboarden
                     leaderboardManager.displayLeaderboard();
                     break;
                 case 2:
-                    // Filtrera per kategori
                     System.out.print("Ange kategori: ");
                     String category = scanner.nextLine();
                     leaderboardManager.displayCategoryLeaderboard(category);
                     break;
                 case 3:
-                    // Tillbaka till huvudmenyn
                     running = false;
                     break;
                 default:

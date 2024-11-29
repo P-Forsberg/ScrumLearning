@@ -7,7 +7,7 @@ public class StatisticManager {
     private int score;
     private int questionsAttempted;
     private int correctAnswers;
-    private Map<String, int[]> categoryStats; // Nytt: Statistik per kategori
+    private Map<String, int[]> categoryStats;
 
     public StatisticManager() {
         this.score = 0;
@@ -23,7 +23,6 @@ public class StatisticManager {
             score += 10;
         }
 
-        // Uppdatera statistik för kategorin
         categoryStats.putIfAbsent(category, new int[]{0, 0});
         int[] stats = categoryStats.get(category);
         stats[0] += isCorrect ? 1 : 0; // Rätt svar

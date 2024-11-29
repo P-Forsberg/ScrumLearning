@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LeaderboardManager {
-    private Map<String, StatisticManager> playerStats; // Statistik per spelare
+    private Map<String, StatisticManager> playerStats;
 
     public LeaderboardManager() {
         this.playerStats = new HashMap<>();
