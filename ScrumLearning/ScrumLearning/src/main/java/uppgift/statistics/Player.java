@@ -31,8 +31,8 @@ public class Player {
         return statisticManager;
     }
 
-    public void updateStatistics(boolean isCorrect) {
-        statisticManager.updateStats(isCorrect);
+    public void updateStatistics(boolean isCorrect, String category) {
+        statisticManager.updateStats(isCorrect, category);
     }
 
     public void saveStatistics() {
