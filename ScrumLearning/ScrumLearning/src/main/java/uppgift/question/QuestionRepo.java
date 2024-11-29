@@ -10,6 +10,8 @@ import java.util.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringEscapeUtils;
 
+
+
 public class QuestionRepo {
         public List<Question> TriviaAPI(String api) {
             List<Question> questions = new ArrayList<>();
@@ -39,13 +41,14 @@ public class QuestionRepo {
                     List <String> options = new ArrayList<>(incorrectAnswers);
                     options.add(correctAnswer);
 
+                    Collections.shuffle(options);
+
                     Question question = new Question(questionText, options, correctAnswer, diff, cat);
                     questions.add(question);
                 }
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
-
             return questions;
         }
     }

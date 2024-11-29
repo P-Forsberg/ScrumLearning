@@ -1,31 +1,40 @@
 package uppgift.user;
 
+import uppgift.statistics.Player;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserManager {
+    private Player currp;
+    private List<Player> regPlayers;
     private Scanner scanner;
 
     public UserManager() {
         this.scanner = new Scanner(System.in);
+        currp = null;
+        this.regPlayers = new ArrayList<>();
     }
 
-    public void start() {
+    public Player start() {
         while (true) {
             displayMenu();
             String choice = scanner.nextLine();
-
+            System.out.println();
             switch (choice) {
                 case "1":
-                    loginUser();
+                    if(loginUser()) return currp;
                     break;
                 case "2":
                     registerNewUser();
                     break;
                 case "0":
                     System.out.println("Exiting the system. Goodbye!");
-                    return;
+                    return null;
                 default:
                     System.out.println("Invalid choice. Please select a valid option.");
+                    break;
             }
         }
     }
@@ -41,27 +50,25 @@ public class UserManager {
     private void registerNewUser() {
         System.out.print("Enter a new username: ");
         String username = scanner.nextLine();
-
-        if (Users.isUsernameTaken(username)) {
-            System.out.println("Username is already taken. Please try again.");
-        } else {
-            Users newUser = new Users(username);
-            System.out.println("Welcome, " + newUser.getUsername() + "!");
+        for (Player p : regPlayers) {
+            if (p.getUsername().equals(username)) {
+                System.out.println("Username already taken. Please choose another one.");
+                return;
+            }
         }
+        Player newPlayer = new Player(username);
+        regPlayers.add(newPlayer);
     }
 
-    private void loginUser() {
+    private boolean loginUser() {
         System.out.print("Enter your username: ");
         String username = scanner.nextLine();
-
-        if (Users.usernameExists(username)) {
-            System.out.println("Welcome back, " + username + "!");
-        } else {
-            System.out.println("Username not found. Please register as a new user.");
+        for (Player p : regPlayers) {
+            if (username.equals(p.getUsername())) {
+                currp = p;
+                return true;
+            }
         }
-    }
-
-    public void close() {
-        scanner.close();
+        return false;
     }
 }

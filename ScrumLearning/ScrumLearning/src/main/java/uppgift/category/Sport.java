@@ -12,7 +12,7 @@ import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Scanner;
 
-public class Sport extends CategoryCommand {
+public class Sport extends Category {
 
     private SetQuiz setDifficulty;
     private QuestionRepo questionRepo;
@@ -22,35 +22,15 @@ public class Sport extends CategoryCommand {
         super("Sport");
         this.questionRepo = new QuestionRepo();
         this.setDifficulty = new SetQuiz();
-        this.apiUrl = "https://opentdb.com/api.php?amount=12&category=21&difficulty=";
+        this.apiUrl = "https://opentdb.com/api.php?amount=2&category=21&difficulty=";
     }
 
-    private void handleQuiz(List<Question> sportQuestions) {
-        Scanner scanner = new Scanner(System.in);
-        for (Question question : sportQuestions) {
-            System.out.println("Question: " + question.getQuestion());
-            for (int i = 0; i < question.getAllAnswers().size(); i++){
-                System.out.println((i + 1) + ". " + question.getAllAnswers().get(i));
-            }
-
-            System.out.println(question.getDifficulty());
-            int answer = scanner.nextInt() -1;
-            System.out.println(question.getAllAnswers().get(answer));
-            System.out.println("--------------------------");
-            if (question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())){
-                System.out.println("correct");
-            } else {
-                System.out.println("wrong");
-            }
-        }
-    }
 
     @Override
     public void executeCategory() {
-        System.out.println("Loading category...");
         String diff = setDifficulty.selectDifficulty();
-        List <Question> sportQuestions  = questionRepo.TriviaAPI(apiUrl + diff);
-        handleQuiz(sportQuestions);
+        System.out.println("Loading category...");
+        questions  = questionRepo.TriviaAPI(apiUrl + diff);
     }
 }
 

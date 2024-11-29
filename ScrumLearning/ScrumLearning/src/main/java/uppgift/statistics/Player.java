@@ -5,22 +5,12 @@ import java.util.Set;
 
 public class Player {
     private String username;
-    private static Set<String> registeredUsernames = new HashSet<>();
     private StatisticManager statisticManager;
     private StatisticSaver statisticSaver;
 
-    public Player(String username, StatisticSaver statisticSaver) {
-        if (isUsernameTaken(username)) {
-            throw new IllegalArgumentException("Username already taken.");
-        }
+    public Player(String username) {
         this.username = username;
-        registeredUsernames.add(username);
         this.statisticManager = new StatisticManager();
-        this.statisticSaver = statisticSaver;
-    }
-
-    public static boolean isUsernameTaken(String username) {
-        return registeredUsernames.contains(username);
     }
 
     public String getUsername() {
@@ -31,13 +21,15 @@ public class Player {
         return statisticManager;
     }
 
-    public void updateStatistics(boolean isCorrect, String category) {
-        statisticManager.updateStats(isCorrect, category);
+    public void updateStatistics(boolean isCorrect) {
+        statisticManager.updateStats(isCorrect);
     }
 
+    public void displayStatistics() {
+        statisticManager.displayStatistics(getUsername());
+    }
     public void saveStatistics() {
-        if (statisticSaver != null) {
-            statisticSaver.saveStatistics(
+            statisticManager.saveStatistics(
                     getUsername(),
                     statisticManager.getScore(),
                     statisticManager.getQuestionsAttempted(),
@@ -47,8 +39,4 @@ public class Player {
         }
     }
 
-    public void displayStatistics() {
-        statisticManager.displayStatistics(getUsername());
-    }
-}
 

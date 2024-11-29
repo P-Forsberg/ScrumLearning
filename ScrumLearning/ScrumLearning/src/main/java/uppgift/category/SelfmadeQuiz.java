@@ -2,6 +2,7 @@ package uppgift.category;
 
 
 import uppgift.options.PlayerQuizMaker;
+
 import uppgift.score.ScoreManager;
 import uppgift.statistics.LeaderboardManager;
 
@@ -10,7 +11,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.List;
 
-public class SelfmadeQuiz extends CategoryCommand {
+public class SelfmadeQuiz extends Category {
     private PlayerQuizMaker quizMaker;
     private ScoreManager scoreManager;
 
@@ -57,6 +58,7 @@ public class SelfmadeQuiz extends CategoryCommand {
             } else {
                 System.out.println("Wrong! The correct answer was: " + answer.get(i));
             }
+
             scoreManager.displayCurrentScore();
         }
         System.out.println("Quiz finished! Your final score: " + scoreManager.getScore() + "/" + scoreManager.getTotalQuestions());

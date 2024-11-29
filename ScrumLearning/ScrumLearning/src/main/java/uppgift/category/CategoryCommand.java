@@ -1,48 +1,38 @@
 package uppgift.category;
 
-import uppgift.menu.IMenuOptions;
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
-public abstract class CategoryCommand implements uppgift.category.ICategoryCommand {
-    private String name;
+public  class CategoryCommand  {
 
-    public CategoryCommand(String name){
-        this.name = name;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public abstract void executeCategory();
-
-    public static void showCategoryMenu() {
-        uppgift.category.ICategoryCommand[] categories = {
+    public Category showCategoryMenu() {
+        List<Category> categories;
+        categories = new ArrayList<>(Arrays.asList(
                 new Sport(),
                 new Music(),
                 new Animals(),
                 new History(),
                 new Geography(),
-                new SelfmadeQuiz(),
-                // Lägg till fler kategorier här
-        };
+                new SelfmadeQuiz()
+        ));
+        // Lägg till fler kategorier här
 
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please select a category:");
-        for (int i = 0; i < categories.length; i++) {
-            System.out.println((i + 1) + ". " + ((CategoryCommand) categories[i]).getName());
+        for (int i = 0; i < categories.size(); i++) {
+            System.out.println((i + 1) + ". " + categories.get(i).getName());
         }
 
         int choice = scanner.nextInt();
 
-        if (choice > 0 && choice <= categories.length) {
-            categories[choice - 1].executeCategory();
+        if (choice > 0 && choice <= categories.size()) {
+            return categories.get(choice -1);
         } else {
             System.out.println("Invalid choice, returning to menu.");
         }
+        return null;
     }
-
-
 }

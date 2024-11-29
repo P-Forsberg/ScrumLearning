@@ -1,4 +1,4 @@
-package main.java.uppgift.AvslutaAppen;
+/*package main.java.uppgift.AvslutaAppen;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -35,3 +35,4 @@ public class FileManager implements SaveAndLoad {
         System.out.println("Quizet har sparats till " + filename);
     }
 }
+*/

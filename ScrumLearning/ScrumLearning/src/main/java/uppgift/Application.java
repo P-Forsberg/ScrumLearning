@@ -1,20 +1,21 @@
 package uppgift;
 import uppgift.menu.Menu;
-import uppgift.participant.ParticipantGame;
+import uppgift.statistics.Player;
 import uppgift.user.UserManager;
 
 
 public class Application {
-    private boolean running;
+
     public static void main(String[] args){
 
     Menu menu = new Menu();
     UserManager userManager = new UserManager();
-    userManager.start();
-    ParticipantGame pg = new ParticipantGame();
-    pg.displayWelcomeMessage();
-    pg.handleMenuSelection();
-    menu.displayMenu();
+    while(true) {
+        Player currp = userManager.start();
+        if (currp == null) break;
+
+        Game game = new Game(currp);
+        game.game();
+    }
   }
 }
-

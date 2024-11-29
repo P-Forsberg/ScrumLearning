@@ -1,3 +1,4 @@
+/*
 package main.java.uppgift.AvslutaAppen;
 
 import java.io.IOException;
@@ -21,3 +22,4 @@ public class StopCommand {
         }
     }
 }
+*/
