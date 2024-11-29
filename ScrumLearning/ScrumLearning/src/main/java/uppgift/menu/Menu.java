@@ -13,11 +13,12 @@ public class Menu {
     private MenuOption[] options;
 
     public Menu() {
-        options = new MenuOption[]{
-                new PlayGameOption(),
-                new CreateQuizOption(),
-                new ViewStatisticsOption(),
-                new LeaderboardMenu(),
+        //LeaderboardManager leaderboardManager = new LeaderboardManager();
+        options = new MenuOption[] {
+                  new PlayGameOption(),
+                  new CreateQuizOption(),
+                  new ViewStatisticsOption(),
+                  new LeaderboardMenu(),
         };
     }
 

@@ -2,6 +2,7 @@ package uppgift.statistics;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Map;
 
 public class StatisticManager implements StatisticSaver {
     private int score;

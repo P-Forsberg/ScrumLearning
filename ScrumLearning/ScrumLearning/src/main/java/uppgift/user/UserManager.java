@@ -1,6 +1,5 @@
 package uppgift.user;
 
-import uppgift.menu.Menu;
 import uppgift.statistics.Player;
 
 import java.util.ArrayList;

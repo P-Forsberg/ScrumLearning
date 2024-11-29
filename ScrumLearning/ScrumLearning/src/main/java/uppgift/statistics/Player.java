@@ -6,6 +6,7 @@ import java.util.Set;
 public class Player {
     private String username;
     private StatisticManager statisticManager;
+    private StatisticSaver statisticSaver;
 
     public Player(String username) {
         this.username = username;

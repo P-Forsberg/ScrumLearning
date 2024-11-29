@@ -23,3 +23,8 @@ Score: 0
 Questions Attempted: 0
 Correct Answers: 0
 Accuracy: 0.00%
+Statistics for 1:
+Score: 60
+Questions Attempted: 12
+Correct Answers: 6
+Accuracy: 50.00%
