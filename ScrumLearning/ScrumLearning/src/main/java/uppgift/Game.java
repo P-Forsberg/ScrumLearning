@@ -6,6 +6,7 @@ import uppgift.menu.Menu;
 import uppgift.menu.MenuOption;
 import uppgift.question.Question;
 import uppgift.statistics.Player;
+import uppgift.avslutaappen.StopCommand;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +43,10 @@ public class Game {
                     options[choice -1].execute();
                     break;
                 case 5:
+                    StopCommand stopCommand = new StopCommand(currentPlayer);
+                    stopCommand.execute();
                     return;
-                default:
+                    default:
                     System.out.println("Invalid choice, try again.");
                     break;
             }

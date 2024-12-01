@@ -1,25 +1,27 @@
-/*
-package main.java.uppgift.AvslutaAppen;
+package uppgift.avslutaappen;
 
-import java.io.IOException;
-
-import main.java.uppgift.Application;
+import uppgift.statistics.Player;
+import uppgift.options.ViewStatisticsOption;
+import java.util.Scanner;
 
 public class StopCommand {
-    private Application application;
+    private Player currentPlayer;
 
-    public StopCommand(Application application) {
-        this.application = application;
+    public StopCommand(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
     }
 
-    public void run(String[] args) {
-        try {
-            FileManager fileManager = new FileManager();
-            fileManager.saveFile(); // Anropar metoden för att spara filen
-            application.running = false; // Stänger av programmet.
-        } catch (IOException e) {
-            System.err.println("Ett fel uppstod vid sparning: " + e.getMessage());
+    public void execute() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Vill du spara dina resultat innan du avslutar? (j/n)");
+        String input = scanner.nextLine().trim().toLowerCase();
+
+        if (input.equals("j")) {
+            SparaTillFil sparaTillFil = new SparaTillFil(currentPlayer);
+            sparaTillFil.saveResults();
+        } else {
+            System.out.println("Dina resultat har inte sparats.");
         }
+        System.out.println("Tack för att du spelade! Hejdå!");
     }
 }
-*/
