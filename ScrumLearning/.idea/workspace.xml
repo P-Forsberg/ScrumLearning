@@ -4,7 +4,64 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61027f8b-3d25-4942-913c-08fb6b8bade4" name="Changes" comment="merge" />
+    <list default="true" id="61027f8b-3d25-4942-913c-08fb6b8bade4" name="Changes" comment="merge">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/PrintUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/PrintUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/Animals.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/Animals.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/CategoryCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/CategoryCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/Geography.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/Geography.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/History.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/History.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/Music.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/Music.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/SelfmadeQuiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/SelfmadeQuiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/SetQuiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/SetQuiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/Sport.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/category/Sport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/menu/IMenuOptions.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/menu/IMenuOptions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/menu/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/menu/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/menu/MenuOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/menu/MenuOption.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/options/CreateQuizOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/options/CreateQuizOption.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/options/PlayGameOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/options/PlayGameOption.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/options/PlayerQuizMaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/options/PlayerQuizMaker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/options/ViewStatisticsOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/options/ViewStatisticsOption.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/participant/ParticipantGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/participant/ParticipantGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/participant/ParticipantManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/participant/ParticipantManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/question/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/question/Question.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/question/QuestionRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/question/QuestionRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/saveandload/SaveAndLoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/saveandload/SaveAndLoad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/score/ScoreManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/score/ScoreManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/statistics/LeaderboardManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/statistics/LeaderboardManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/statistics/LeaderboardMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/statistics/LeaderboardMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/statistics/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/statistics/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/statistics/StatisticManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/statistics/StatisticManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/statistics/StatisticSaver.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/statistics/StatisticSaver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/user/UserManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/classes/java/main/uppgift/user/UserManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/tmp/compileJava/compileTransaction/stash-dir/Application.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/tmp/compileJava/compileTransaction/stash-dir/UserManager.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/options/ViewStatisticsOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/options/ViewStatisticsOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/statistics/LeaderboardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/statistics/LeaderboardManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/statistics/LeaderboardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/statistics/LeaderboardMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/statistics/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/statistics/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/statistics/StatisticManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/statistics/StatisticManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/user/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ScrumLearning/src/main/java/uppgift/user/UserManager.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,6 +124,7 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2oporSYXmZt0CFTToFsbvAB8W18" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -76,13 +134,15 @@
     "Application.Application.executor": "Run",
     "Gradle.ScrumLearning [:uppgift.Application.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "Shell Script.gradlew.executor": "Run",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/pontu/Documents/Java/Övning",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+    "settings.editor.selected.configurable": "preferences.language.Kotlin.scripting"
   }
 }]]></component>
   <component name="RunManager" selected="Application.Application">
@@ -196,6 +256,9 @@
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
     <MESSAGE value="hej" />
     <MESSAGE value="Menu functionality and categori with api based questions" />
     <MESSAGE value="Added API to all categorys + menu you can choose categori" />

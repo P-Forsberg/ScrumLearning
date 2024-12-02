@@ -1,18 +1,20 @@
 package uppgift.user;
 
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.ObjectReader;
 import uppgift.statistics.Player;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 public class UserManager {
     private Player currp;
     private List<Player> regPlayers;
     private Scanner scanner;
 
-    private static final String FILE_PATH = "users.txt";
+    private static final String FILE_PATH = "players.json";
 
     public UserManager() {
         this.scanner = new Scanner(System.in);
@@ -84,11 +86,11 @@ public class UserManager {
     }
 
     private void loadUsers() {
-        try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                Player player = new Player(line.trim());
-                regPlayers.add(player);
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            File file = new File(FILE_PATH);
+            if (file.exists()) {
+                regPlayers = objectMapper.readValue(file, objectMapper.getTypeFactory().constructCollectionType(List.class, Player.class));
             }
         } catch (IOException e) {
             System.out.println("No previous user data found, starting fresh.");
@@ -96,13 +98,12 @@ public class UserManager {
     }
 
     private void saveUsers() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_PATH))) {
-            for (Player p : regPlayers) {
-                bw.write(p.getUsername());
-                bw.newLine();
-            }
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            objectMapper.writeValue(new File(FILE_PATH), regPlayers);
         } catch (IOException e) {
             System.out.println("Error saving user data.");
         }
     }
 }
+

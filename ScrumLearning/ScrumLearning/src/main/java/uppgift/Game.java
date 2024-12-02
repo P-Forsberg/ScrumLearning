@@ -26,7 +26,7 @@ public class Game {
 
     public void game() {
         System.out.println(currentPlayer.getUsername());
-        MenuOption options[] = menu.getOptions();
+        MenuOption[] options = menu.getOptions();
         while(true){
             int choice = menu.mainMenu();
             switch (choice) {
@@ -34,11 +34,12 @@ public class Game {
                     Category category = categoryCommand.showCategoryMenu();
                     category.executeCategory();
                     List<Question> questions = category.getQuestions();
-                    handleQuiz(currentPlayer, questions);
+                    handleQuiz(currentPlayer, questions, category);
                     break;
                 case 2:
                 case 3:
                 case 4:
+                    System.out.println("exec ::: " + options[choice -1]);
                     options[choice -1].execute();
                     break;
                 case 5:
@@ -51,7 +52,7 @@ public class Game {
     }
 
 
-    private void handleQuiz(Player currentPlayer, List<Question> questions) {
+    private void handleQuiz(Player currentPlayer, List<Question> questions, Category currc) {
         Scanner scanner = new Scanner(System.in);
         for (Question question : questions) {
             System.out.println("Question: " + question.getQuestion());
@@ -63,10 +64,10 @@ public class Game {
             System.out.println("--------------------------");
             if(question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())){
                 System.out.println(PrintUtil.GREEN + "Correct" + PrintUtil.RESET);
-                currentPlayer.updateStatistics(true);
+                currentPlayer.updateStatistics(true, currc.getName());
             } else{
                 System.out.println(PrintUtil.RED + "Wrong" + PrintUtil.RESET);
-                currentPlayer.updateStatistics(false);
+                currentPlayer.updateStatistics(false, currc.getName());
             }
         }
         currentPlayer.displayStatistics();

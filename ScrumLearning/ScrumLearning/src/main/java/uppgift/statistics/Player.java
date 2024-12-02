@@ -12,7 +12,9 @@ public class Player {
         this.username = username;
         this.statisticManager = new StatisticManager();
     }
-
+    // för jackson
+    public Player(){
+    }
     public String getUsername() {
         return username;
     }
@@ -21,8 +23,8 @@ public class Player {
         return statisticManager;
     }
 
-    public void updateStatistics(boolean isCorrect) {
-        statisticManager.updateStats(isCorrect);
+    public void updateStatistics(boolean isCorrect, String cat) {
+        statisticManager.updateStats(isCorrect, cat);
     }
 
     public void displayStatistics() {

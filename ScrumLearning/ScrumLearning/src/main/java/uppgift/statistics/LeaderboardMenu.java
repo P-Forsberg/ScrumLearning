@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class LeaderboardMenu implements MenuOption {
     private LeaderboardManager leaderboardManager;
 
-    public LeaderboardMenu() {
+    public LeaderboardMenu(LeaderboardManager leaderboardManager) {
         this.leaderboardManager = leaderboardManager;
     }
 
@@ -29,7 +29,6 @@ public class LeaderboardMenu implements MenuOption {
                     break;
                 case 2:
                     System.out.print("Ange kategori: ");
-                    String category = scanner.nextLine();
                     break;
                 case 3:
                     running = false;
