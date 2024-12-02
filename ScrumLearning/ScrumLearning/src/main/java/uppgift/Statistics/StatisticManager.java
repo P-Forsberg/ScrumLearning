@@ -107,12 +107,4 @@ public class StatisticManager {
             System.out.println("-----------------------");
         }
     }
-// 27/11 cecilia - leaderboard fixad igår, idag pussla ihop koden.
-// josef - försökte pussla ihop igår, fix ihop vissa delar.
-// anton - försätta som igår och sätta ihop delarna.
-// olga - ändringar igår, la till boolean i Application, fundera på vad sim finns och göra.
-// pontus - fått statistik och funka igår med poäng, idag få utskrift på statistik.
-
-// josef hade lite problem med "mark as source root", och skulle kolla på det efter avslutat möte.
-//
 
