@@ -20,11 +20,7 @@ public class SelfmadeQuiz extends Category {
         quizMaker = new PlayerQuizMaker();
         scoreManager = new ScoreManager();
 
-        try {
-            quizMaker.loadQuiz();
-        } catch (IOException e) {
-            System.out.println("Failed to load selfmade quizzes: " + e.getMessage());
-        }
+        quizMaker.load();
     }
 
     @Override

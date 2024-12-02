@@ -1,5 +1,6 @@
 package uppgift.statistics;
 
+import uppgift.PrintUtil;
 import uppgift.menu.MenuOption;
 import java.util.Scanner;
 
@@ -15,11 +16,11 @@ public class LeaderboardMenu implements MenuOption {
         boolean running = true;
 
         while (running) {
-            System.out.println("=== Leaderboard Menu ===");
+            System.out.println(PrintUtil.BLUE + "=== Leaderboard Menu ===");
             System.out.println("1. Visa hela leaderboarden");
             System.out.println("2. Filtrera leaderboard per kategori");
             System.out.println("3. Tillbaka till huvudmenyn");
-            System.out.print("Välj ett alternativ: ");
+            System.out.print("Välj ett alternativ: " + PrintUtil.RESET);
             int choice = scanner.nextInt();
             scanner.nextLine();
 

@@ -1,0 +1,45 @@
+Statistics for anton:
+Score: 20
+Questions Attempted: 2
+Correct Answers: 2
+Accuracy: 100.00%
+Statistics for anton:
+Score: 10
+Questions Attempted: 2
+Correct Answers: 1
+Accuracy: 50.00%
+Statistics for anton:
+Score: 0
+Questions Attempted: 2
+Correct Answers: 0
+Accuracy: 0.00%
+Statistics for anton:
+Score: 0
+Questions Attempted: 4
+Correct Answers: 0
+Accuracy: 0.00%
+Statistics for anton:
+Score: 0
+Questions Attempted: 6
+Correct Answers: 0
+Accuracy: 0.00%
+Statistics for anton:
+Score: 30
+Questions Attempted: 12
+Correct Answers: 3
+Accuracy: 25.00%
+Statistics for anton:
+Score: 0
+Questions Attempted: 2
+Correct Answers: 0
+Accuracy: 0.00%
+Statistics for anton:
+Score: 0
+Questions Attempted: 4
+Correct Answers: 0
+Accuracy: 0.00%
+Statistics for anton:
+Score: 10
+Questions Attempted: 6
+Correct Answers: 1
+Accuracy: 16.67%

@@ -1,5 +1,7 @@
 package uppgift.category;
 
+import uppgift.PrintUtil;
+
 import java.util.Scanner;
 
 public class SetQuiz {
@@ -10,7 +12,7 @@ public class SetQuiz {
         System.out.println("Select difficulty");
         System.out.println("1. Easy");
         System.out.println("2. Medium");
-        System.out.println("3. Hard");
+        System.out.println("3. Hard" + PrintUtil.RESET);
 
         int choice = scanner.nextInt();
         switch(choice){
@@ -37,7 +39,7 @@ public class SetQuiz {
         System.out.println("Select difficulty");
         System.out.println("1. Easy");
         System.out.println("2. Medium");
-        System.out.println("3. Hard");
+        System.out.println("3. Hard" + PrintUtil.RESET);
 
         int choice = scanner.nextInt();
         switch(choice){

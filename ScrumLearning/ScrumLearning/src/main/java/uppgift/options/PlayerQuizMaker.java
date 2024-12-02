@@ -1,13 +1,13 @@
 package uppgift.options;
 
-import uppgift.saveandload.SaveAndLoad;
+import uppgift.statistics.FileService;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class PlayerQuizMaker implements SaveAndLoad {
+public class PlayerQuizMaker implements FileService {
     private static final String FILE_NAME = "selfmade_quizzes.txt";
 
     private List<List<String>> quizzes;
@@ -48,11 +48,7 @@ public class PlayerQuizMaker implements SaveAndLoad {
         quizzes.add(questions);
         answers.add(correctAnswers);
 
-        try {
-            saveQuiz();
-        } catch (IOException e) {
-            System.out.println("Failed to save quiz: " + e.getMessage());
-        }
+        save();
 
         System.out.println("Your quiz is now done, this is your questions: ");
         for (int i = 0; i < questions.size(); i++) {
@@ -62,7 +58,7 @@ public class PlayerQuizMaker implements SaveAndLoad {
     }
 
     @Override
-    public void saveQuiz() throws IOException {
+    public void save() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (int i = 0; i < quizzes.size(); i++) {
                 writer.write(String.join(",", quizzes.get(i)));
@@ -70,11 +66,13 @@ public class PlayerQuizMaker implements SaveAndLoad {
                 writer.write(String.join(",", answers.get(i)));
                 writer.newLine();
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @Override
-    public void loadQuiz() throws IOException {
+    public void load() {
         quizzes.clear();
         answers.clear();
 
@@ -92,6 +90,8 @@ public class PlayerQuizMaker implements SaveAndLoad {
             }
         } catch (FileNotFoundException e) {
             System.out.println("No previous quiz data found, starting fresh.");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

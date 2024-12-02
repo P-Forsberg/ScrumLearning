@@ -14,18 +14,20 @@ public class LeaderboardManager {
     private static final String FILE_PATH = "players.json";
 
     public LeaderboardManager() {
-        this.playerStats = new ArrayList<>();
-        loadPlayers();
+        this.playerStats =  loadPlayers();
+
     }
 
-    private void loadPlayers() {
+    private  List<Player> loadPlayers() {
+        List<Player> players = List.of();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            playerStats = objectMapper.readValue(new File(FILE_PATH),
+            players = objectMapper.readValue(new File(FILE_PATH),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, Player.class));
         } catch (IOException e) {
             System.out.println("Error loading players from JSON: " + e.getMessage());
         }
+        return players;
     }
 
     public void addPlayer(Player player) {

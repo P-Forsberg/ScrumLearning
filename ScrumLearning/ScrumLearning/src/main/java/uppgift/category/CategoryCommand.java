@@ -1,5 +1,7 @@
 package uppgift.category;
 
+import uppgift.PrintUtil;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,7 +25,7 @@ public  class CategoryCommand  {
 
         System.out.println("Please select a category:");
         for (int i = 0; i < categories.size(); i++) {
-            System.out.println((i + 1) + ". " + categories.get(i).getName());
+            System.out.println(PrintUtil.YELLOW + (i + 1) + ". " + categories.get(i).getName());
         }
 
         int choice = scanner.nextInt();

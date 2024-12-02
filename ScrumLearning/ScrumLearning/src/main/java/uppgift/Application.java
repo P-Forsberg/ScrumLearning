@@ -16,6 +16,7 @@ public class Application {
 
             Game game = new Game(currp);
             game.game();
+            userManager.save();
         }
     }
 }

@@ -27,20 +27,20 @@ public class Game {
     public void game() {
         System.out.println(currentPlayer.getUsername());
         MenuOption[] options = menu.getOptions();
-        while(true){
+        while (true) {
             int choice = menu.mainMenu();
             switch (choice) {
                 case 1:
                     Category category = categoryCommand.showCategoryMenu();
                     category.executeCategory();
                     List<Question> questions = category.getQuestions();
-                    handleQuiz(currentPlayer, questions, category);
+                    handleQuiz(currentPlayer, questions);
                     break;
                 case 2:
                 case 3:
                 case 4:
-                    System.out.println("exec ::: " + options[choice -1]);
-                    options[choice -1].execute();
+                    System.out.println("exec ::: " + options[choice - 1]);
+                    options[choice - 1].execute();
                     break;
                 case 5:
                     return;
@@ -52,25 +52,44 @@ public class Game {
     }
 
 
-    private void handleQuiz(Player currentPlayer, List<Question> questions, Category currc) {
+    private void handleQuiz(Player currentPlayer, List<Question> questions) {
         Scanner scanner = new Scanner(System.in);
+
         for (Question question : questions) {
             System.out.println("Question: " + question.getQuestion());
-            for (int i = 0; i < question.getAllAnswers().size(); i++){
+            for (int i = 0; i < question.getAllAnswers().size(); i++) {
                 System.out.println((i + 1) + ". " + question.getAllAnswers().get(i));
             }
-            int answer = scanner.nextInt() -1;
+
+            int answer = -1;
+            boolean validInput = false;
+
+            while (!validInput) {
+                System.out.print("Your answer: ");
+                if (scanner.hasNextInt()) {
+                    answer = scanner.nextInt() - 1;
+                    if (answer >= 0 && answer < question.getAllAnswers().size()) {
+                        validInput = true;
+                    } else {
+                        System.out.println(PrintUtil.RED + "Invalid choice. Please select a valid option." + PrintUtil.RESET);
+                    }
+                } else {
+                    System.out.println(PrintUtil.RED + "Invalid input. Please enter a number." + PrintUtil.RESET);
+                    scanner.next();
+                }
+            }
+
             System.out.println(question.getAllAnswers().get(answer));
             System.out.println("--------------------------");
-            if(question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())){
+
+            if (question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())) {
                 System.out.println(PrintUtil.GREEN + "Correct" + PrintUtil.RESET);
-                currentPlayer.updateStatistics(true, currc.getName());
-            } else{
+                currentPlayer.updateStatistics(true);
+            } else {
                 System.out.println(PrintUtil.RED + "Wrong" + PrintUtil.RESET);
-                currentPlayer.updateStatistics(false, currc.getName());
+                currentPlayer.updateStatistics(false);
             }
         }
         currentPlayer.displayStatistics();
-        currentPlayer.saveStatistics();
     }
 }
