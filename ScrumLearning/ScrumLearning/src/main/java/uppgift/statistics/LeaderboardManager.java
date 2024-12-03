@@ -14,12 +14,12 @@ public class LeaderboardManager {
         playerStats.putIfAbsent(playerName, new StatisticManager());
     }
 
-    /*public void updatePlayerStats(String playerName, boolean isCorrect, String category) {
+    public void updatePlayerStats(String playerName, boolean isCorrect, String category) {
         if (!playerStats.containsKey(playerName)) {
             addPlayer(playerName);
         }
         playerStats.get(playerName).updateStats(isCorrect, category);
-    }*/
+    }
 
     public void displayLeaderboard() {
         System.out.println("=== Total Leaderboard ===");
@@ -28,7 +28,7 @@ public class LeaderboardManager {
         });
     }
 
-    /*public void displayCategoryLeaderboard(String category) {
+    public void displayCategoryLeaderboard(String category) {
         System.out.printf("=== Leaderboard for %s ===\n", category);
         playerStats.forEach((player, stats) -> {
             Map<String, int[]> categoryStats = stats.getCategoryStats();
@@ -39,6 +39,4 @@ public class LeaderboardManager {
             }
         });
     }
-
-     */
 }

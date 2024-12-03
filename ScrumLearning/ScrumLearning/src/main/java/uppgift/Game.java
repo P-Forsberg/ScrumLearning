@@ -9,6 +9,7 @@ import uppgift.statistics.Player;
 import uppgift.avslutaappen.StopCommand;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -58,20 +59,38 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         for (Question question : questions) {
             System.out.println("Question: " + question.getQuestion());
-            for (int i = 0; i < question.getAllAnswers().size(); i++){
+            for (int i = 0; i < question.getAllAnswers().size(); i++) {
                 System.out.println((i + 1) + ". " + question.getAllAnswers().get(i));
             }
-            int answer = scanner.nextInt() -1;
+
+            int answer = -1;
+
+            while (true) {
+                try {
+                    answer = scanner.nextInt() - 1;
+                    if (answer < 0 || answer >= question.getAllAnswers().size()) {
+                        System.out.println(PrintUtil.RED + "Error, Please select between 1 and " + question.getAllAnswers().size() + "." + PrintUtil.RESET);
+                    } else {
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println(PrintUtil.RED + "Invalid input! Please enter a valid number." + PrintUtil.RESET);
+                    scanner.nextLine();
+                }
+            }
+
             System.out.println(question.getAllAnswers().get(answer));
             System.out.println("--------------------------");
-            if(question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())){
+
+            if (question.getAllAnswers().get(answer).equals(question.getCorrectAnswer())) {
                 System.out.println(PrintUtil.GREEN + "Correct" + PrintUtil.RESET);
                 currentPlayer.updateStatistics(true);
-            } else{
+            } else {
                 System.out.println(PrintUtil.RED + "Wrong" + PrintUtil.RESET);
                 currentPlayer.updateStatistics(false);
             }
         }
+
         currentPlayer.displayStatistics();
         currentPlayer.saveStatistics();
     }
