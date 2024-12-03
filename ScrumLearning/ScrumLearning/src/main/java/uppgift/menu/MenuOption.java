@@ -1,7 +1,7 @@
 package uppgift.menu;
 
-import uppgift.category.Category;
+import uppgift.statistics.Player;
 
 public interface MenuOption {
-    void execute();
+    void execute(Player currentPlayer);
 }

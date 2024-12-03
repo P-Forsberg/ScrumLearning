@@ -31,6 +31,7 @@ public class Menu {
         System.out.println("1. Play the quiz");
         System.out.println("2. Make your own quiz");
         System.out.println("3. View Leaderboard");
+        System.out.println("3. View Stats");
         System.out.println("5. End the quiz");
         return scanner.nextInt();
     }

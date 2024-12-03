@@ -39,8 +39,7 @@ public class Game {
                 case 2:
                 case 3:
                 case 4:
-                    System.out.println("exec ::: " + options[choice - 1]);
-                    options[choice - 1].execute();
+                    options[choice - 1].execute(currentPlayer);
                     break;
                 case 5:
                     return;
@@ -54,6 +53,7 @@ public class Game {
 
     private void handleQuiz(Player currentPlayer, List<Question> questions) {
         Scanner scanner = new Scanner(System.in);
+        String category = questions.get(0).getCategory();
 
         for (Question question : questions) {
             System.out.println("Question: " + question.getQuestion());

@@ -1,5 +1,0 @@
-Statistics for pontus:
-Score: 0
-Questions Attempted: 2
-Correct Answers: 0
-Accuracy: 0.00%

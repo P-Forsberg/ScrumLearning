@@ -17,7 +17,7 @@ public  class CategoryCommand  {
                 new Animals(),
                 new History(),
                 new Geography(),
-                new SelfmadeQuiz()
+                new SelfMadeQuiz()
         ));
         // Lägg till fler kategorier här
 

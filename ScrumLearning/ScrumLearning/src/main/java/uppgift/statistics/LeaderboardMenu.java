@@ -42,6 +42,6 @@ public class LeaderboardMenu implements MenuOption {
     }
 
     @Override
-    public void execute() {
+    public void execute(Player currentPlayer) {
     }
 }
