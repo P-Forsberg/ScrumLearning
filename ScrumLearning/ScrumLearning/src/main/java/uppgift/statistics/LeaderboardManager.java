@@ -1,42 +1,52 @@
 package uppgift.statistics;
 
-import java.util.HashMap;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class LeaderboardManager {
-    private Map<String, StatisticManager> playerStats;
+    private List<Player> playerStats;
+    private static final String FILE_PATH = "players.json";
 
     public LeaderboardManager() {
-        this.playerStats = new HashMap<>();
+        this.playerStats =  loadPlayers();
+
     }
 
-    public void addPlayer(String playerName) {
-        playerStats.putIfAbsent(playerName, new StatisticManager());
-    }
-
-    public void updatePlayerStats(String playerName, boolean isCorrect, String category) {
-        if (!playerStats.containsKey(playerName)) {
-            addPlayer(playerName);
+    private  List<Player> loadPlayers() {
+        List<Player> players = List.of();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            players = objectMapper.readValue(new File(FILE_PATH),
+                    objectMapper.getTypeFactory().constructCollectionType(List.class, Player.class));
+        } catch (IOException e) {
+            System.out.println("Error loading players from JSON: " + e.getMessage());
         }
-        playerStats.get(playerName).updateStats(isCorrect, category);
+        return players;
     }
 
     public void displayLeaderboard() {
         System.out.println("=== Total Leaderboard ===");
-        playerStats.forEach((player, stats) -> {
-            System.out.printf("%s: %d points\n", player, stats.getScore());
-        });
+        Collections.sort(playerStats, (p1, p2) -> Integer.compare(
+                p2.getStatisticManager().getScore(), p1.getStatisticManager().getScore()));
+        for (Player player : playerStats) {
+            System.out.printf("%s: %d points\n", player.getUsername(), player.getStatisticManager().getScore());
+        }
     }
 
-    public void displayCategoryLeaderboard(String category) {
-        System.out.printf("=== Leaderboard for %s ===\n", category);
-        playerStats.forEach((player, stats) -> {
-            Map<String, int[]> categoryStats = stats.getCategoryStats();
-            if (categoryStats.containsKey(category)) {
-                int[] catStats = categoryStats.get(category);
-                double accuracy = catStats[1] > 0 ? (catStats[0] / (double) catStats[1]) * 100 : 0.0;
-                System.out.printf("%s: %d/%d (%.2f%%)\n", player, catStats[0], catStats[1], accuracy);
+    public void displayPlayerStats(String playerName) {
+        for (Player player : playerStats) {
+            if (player.getUsername().equals(playerName)) {
+                System.out.printf("=== Stats for %s ===\n", playerName);
+                player.displayStatistics();
+                return;
             }
-        });
+        }
+        System.out.println("Player not found.");
     }
 }

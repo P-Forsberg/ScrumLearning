@@ -1,18 +1,14 @@
 package uppgift.options;
 
 
-import uppgift.category.Category;
 import uppgift.menu.MenuOption;
+import uppgift.statistics.Player;
 
 public class CreateQuizOption implements MenuOption {
-    private PlayerQuizMaker quizMaker;
-
-    public CreateQuizOption() {
-        quizMaker = new PlayerQuizMaker();
-    }
+PlayerQuizMaker pqm = new PlayerQuizMaker();
 
     @Override
-    public void execute() {
-        quizMaker.createQuiz();
+    public void execute(Player currentPlayer) {
+        pqm.createQuiz();
     }
 }

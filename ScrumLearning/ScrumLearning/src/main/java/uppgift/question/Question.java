@@ -17,6 +17,7 @@ public class Question {
         this.difficulty = difficulty;
         this.category = category;
     }
+    public Question(){}
 
     public String getQuestion() {
         return question;

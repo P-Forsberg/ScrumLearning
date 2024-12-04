@@ -1,18 +1,21 @@
 package uppgift.statistics;
 
+import uppgift.PrintUtil;
+
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
-public class StatisticManager implements StatisticSaver {
+public class StatisticManager {
     private int score;
     private int questionsAttempted;
     private int correctAnswers;
 
     public StatisticManager() {
-        this.score = 0;
-        this.questionsAttempted = 0;
-        this.correctAnswers = 0;
+        score = 0;
+        questionsAttempted = 0;
+        correctAnswers = 0;
     }
 
     public void updateStats(boolean isCorrect) {
@@ -43,24 +46,11 @@ public class StatisticManager implements StatisticSaver {
     }
 
     public void displayStatistics(String playerName) {
-        System.out.println("Statistics for " + playerName + ":");
+        System.out.println(PrintUtil.YELLOW + "Statistics for " + playerName + ":");
         System.out.println("Score: " + score);
         System.out.println("Questions Attempted: " + questionsAttempted);
         System.out.println("Correct Answers: " + correctAnswers);
         System.out.printf("Accuracy: %.2f%%\n", calculateAccuracy());
         System.out.println("-----------------------");
-    }
-
-    @Override
-    public void saveStatistics(String playerName, int score, int questionsAttempted, int correctAnswers, double accuracy) {
-        String filename = playerName + "stats.txt" ;
-        try (FileWriter writer = new FileWriter(filename, true)) {
-            writer.write("Statistics for " + playerName + ":\n");
-            writer.write("Score: " + score + "\n");
-            writer.write("Questions Attempted: " + questionsAttempted + "\n");
-            writer.write("Correct Answers: " + correctAnswers + "\n");
-            writer.write(String.format("Accuracy: %.2f%%\n", accuracy));
-        } catch (IOException e)
-        { System.out.println("Error saving statistics: " + e.getMessage());}
     }
 }

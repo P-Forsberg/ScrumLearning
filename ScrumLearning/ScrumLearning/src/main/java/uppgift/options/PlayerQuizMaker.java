@@ -1,97 +1,90 @@
 package uppgift.options;
 
-import uppgift.saveandload.SaveAndLoad;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import uppgift.PrintUtil;
+import uppgift.question.Question;
+import uppgift.statistics.FileService;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class PlayerQuizMaker implements SaveAndLoad {
-    private static final String FILE_NAME = "selfmade_quizzes.txt";
-
-    private List<List<String>> quizzes;
-    private List<List<String>> answers;
+public class PlayerQuizMaker implements FileService {
+    private List<Question> questions;
+    private final String filePath = "selfmade_quiz.json";
 
     public PlayerQuizMaker() {
-        quizzes = new ArrayList<>();
-        answers = new ArrayList<>();
+        this.questions = new ArrayList<>();
+        load();
     }
 
-    public List<List<String>> getQuizzes() {
-        return quizzes;
-    }
-
-    public List<List<String>> getAnswers() {
-        return answers;
-    }
-
-    public void createQuiz() {
+   public void createQuiz(){
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Creating a new quiz.");
-        List<String> questions = new ArrayList<>();
-        List<String> correctAnswers = new ArrayList<>();
-
-        System.out.println("How many questions do you want to add to your quiz: ");
-        int numberOfQuestions = scanner.nextInt();
+        System.out.println(PrintUtil.GREEN + "Enter Numbres of questions you want to create: ");
+        int numberOfQuestions = scanner.nextInt();;
         scanner.nextLine();
 
-        for (int i = 1; i <= numberOfQuestions; i++) {
-            System.out.println("PLease write your question" + i + ":");
-            questions.add(scanner.nextLine());
+        for(int i = 0; i < numberOfQuestions; i++){
 
-            System.out.println("Enter the correct answer for question " + i + ": ");
-            correctAnswers.add(scanner.nextLine());
+
+            System.out.println("Creating question number " + (i+1) + ":");
+            System.out.println("Enter question text: ");
+            String questionText = scanner.nextLine();
+
+            System.out.println("Enter number of answer options: ");
+            int numOptions = scanner.nextInt();
+            scanner.nextLine();
+
+            List<String> options = new ArrayList<>();
+            for (int j = 0; j < numOptions; j++) {
+                System.out.println("Enter option: " + (j + 1) + ":");
+                options.add(scanner.nextLine());
+            }
+            System.out.println("Enter correct answer: ");
+            String correctAnswer = scanner.nextLine();
+
+            options.add(correctAnswer);
+            Collections.shuffle(options);
+
+            Question question = new Question(questionText, options, correctAnswer, "custom", "custom");;
+            questions.add(question);
         }
+        save();
+    }
 
-        quizzes.add(questions);
-        answers.add(correctAnswers);
+    @Override
+    public void save() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        File file = new File(filePath);
 
         try {
-            saveQuiz();
+            objectMapper.writeValue(file, questions);
+            System.out.println("Quiz saved successfully!");
         } catch (IOException e) {
-            System.out.println("Failed to save quiz: " + e.getMessage());
-        }
-
-        System.out.println("Your quiz is now done, this is your questions: ");
-        for (int i = 0; i < questions.size(); i++) {
-            System.out.println((i + 1) + ". " + questions.get(i));
-            System.out.println("   Correct answer: " + correctAnswers.get(i));
+            e.printStackTrace();
+            System.out.println("Failed to save quiz.");
         }
     }
 
     @Override
-    public void saveQuiz() throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
-            for (int i = 0; i < quizzes.size(); i++) {
-                writer.write(String.join(",", quizzes.get(i)));
-                writer.newLine();
-                writer.write(String.join(",", answers.get(i)));
-                writer.newLine();
+    public void load() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        File file = new File(filePath);
+
+        if (file.exists()) {
+            try {
+                questions = objectMapper.readValue(file, objectMapper.getTypeFactory().constructCollectionType(List.class, Question.class));
+                System.out.println("Quiz loaded successfully!");
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Failed to load quiz.");
             }
+        } else {
+            System.out.println("No saved quiz found.");
         }
     }
 
-    @Override
-    public void loadQuiz() throws IOException {
-        quizzes.clear();
-        answers.clear();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] questions = line.split(",");
-                line = reader.readLine();
-                if (line != null) {
-                    String[] correctAnswers = line.split(",");
-                    quizzes.add(List.of(questions));
-                    answers.add(List.of(correctAnswers));
-
-                }
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("No previous quiz data found, starting fresh.");
-        }
+    public List<Question> getQuizzes() {
+        return questions;
     }
 }
+

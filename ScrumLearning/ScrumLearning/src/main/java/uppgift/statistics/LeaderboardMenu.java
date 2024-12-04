@@ -1,12 +1,13 @@
 package uppgift.statistics;
 
+import uppgift.PrintUtil;
 import uppgift.menu.MenuOption;
 import java.util.Scanner;
 
 public class LeaderboardMenu implements MenuOption {
     private LeaderboardManager leaderboardManager;
 
-    public LeaderboardMenu() {
+    public LeaderboardMenu(LeaderboardManager leaderboardManager) {
         this.leaderboardManager = leaderboardManager;
     }
 
@@ -15,11 +16,11 @@ public class LeaderboardMenu implements MenuOption {
         boolean running = true;
 
         while (running) {
-            System.out.println("=== Leaderboard Menu ===");
-            System.out.println("1. Visa hela leaderboarden");
-            System.out.println("2. Filtrera leaderboard per kategori");
-            System.out.println("3. Tillbaka till huvudmenyn");
-            System.out.print("Välj ett alternativ: ");
+            System.out.println(PrintUtil.BLUE + "=== Leaderboard Menu ===");
+            System.out.println("1. Show total leaderboard");
+            System.out.println("2. Filter leaderboard by category");
+            System.out.println("3. Back to main menu");
+            System.out.print("Choose an option: " + PrintUtil.RESET);
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -28,20 +29,19 @@ public class LeaderboardMenu implements MenuOption {
                     leaderboardManager.displayLeaderboard();
                     break;
                 case 2:
-                    System.out.print("Ange kategori: ");
-                    String category = scanner.nextLine();
+                    System.out.print("Category: ");
                     break;
                 case 3:
                     running = false;
                     break;
                 default:
-                    System.out.println("Ogiltigt val, försök igen.");
+                    System.out.println("invalid input, try again.");
             }
             System.out.println();
         }
     }
 
     @Override
-    public void execute() {
+    public void execute(Player currentPlayer) {
     }
 }

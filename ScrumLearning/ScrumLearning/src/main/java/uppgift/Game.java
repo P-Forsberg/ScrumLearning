@@ -41,7 +41,7 @@ public class Game {
                 case 2:
                 case 3:
                 case 4:
-                    options[choice -1].execute();
+                    options[choice - 1].execute(currentPlayer);
                     break;
                 case 5:
                     StopCommand stopCommand = new StopCommand(currentPlayer);
@@ -59,23 +59,25 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         for (Question question : questions) {
             System.out.println("Question: " + question.getQuestion());
-            for (int i = 0; i < question.getAllAnswers().size(); i++) {
+            for (int i = 0; i < question.getAllAnswers().size(); i++){
                 System.out.println((i + 1) + ". " + question.getAllAnswers().get(i));
             }
 
             int answer = -1;
+            boolean validInput = false;
 
-            while (true) {
-                try {
+            while (!validInput) {
+                System.out.print("Your answer: ");
+                if (scanner.hasNextInt()) {
                     answer = scanner.nextInt() - 1;
-                    if (answer < 0 || answer >= question.getAllAnswers().size()) {
-                        System.out.println(PrintUtil.RED + "Error, Please select between 1 and " + question.getAllAnswers().size() + "." + PrintUtil.RESET);
+                    if (answer >= 0 && answer < question.getAllAnswers().size()) {
+                        validInput = true;
                     } else {
-                        break;
+                        System.out.println(PrintUtil.RED + "Invalid choice. Please select a valid option." + PrintUtil.RESET);
                     }
-                } catch (InputMismatchException e) {
-                    System.out.println(PrintUtil.RED + "Invalid input! Please enter a valid number." + PrintUtil.RESET);
-                    scanner.nextLine();
+                } else {
+                    System.out.println(PrintUtil.RED + "Invalid input. Please enter a number." + PrintUtil.RESET);
+                    scanner.next();
                 }
             }
 
@@ -90,8 +92,5 @@ public class Game {
                 currentPlayer.updateStatistics(false);
             }
         }
-
-        currentPlayer.displayStatistics();
-        currentPlayer.saveStatistics();
     }
 }

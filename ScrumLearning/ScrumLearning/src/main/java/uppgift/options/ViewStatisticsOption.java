@@ -1,11 +1,12 @@
 package uppgift.options;
 
-import uppgift.category.Category;
 import uppgift.menu.MenuOption;
+import uppgift.statistics.Player;
 
 public class ViewStatisticsOption implements MenuOption {
+
     @Override
-    public void execute() {
-        System.out.println("Viewing your game stats: ");
+    public void execute(Player currentPlayer) {
+       currentPlayer.displayStatistics();
     }
 }
